@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2022-05-08 19:47:48
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-04-09 20:12:45
+LastEditTime: 2024-04-09 20:16:25
 FilePath: /hikit/hikit.py
 Description: 
 
@@ -353,7 +353,7 @@ def __setup_parser():
         to update app.
 
         use,
-        hi update --all or hikist update -a,
+        hi update --all or hi update -a,
         Will update list, hikit and installed apps.
         """))
         )
@@ -366,6 +366,7 @@ def __setup_parser():
         )
 
     parser_update.add_argument(
+        'name',
         help=HiText("menu_uninstall_name_desc", "The app's name or a local app' path. Not necessary."),
         nargs='?',
         default=""
