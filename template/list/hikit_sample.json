@@ -5,7 +5,6 @@
     "version": "1.0.0",
     "type": "app",
     "remote": "",
-    "default_branch": "main",
     "is_default" : false,
     "commands":[
         "hikit_sample"

@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2022-05-08 19:47:48
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-04-09 15:52:34
+LastEditTime: 2024-04-09 19:11:52
 FilePath: /hikit/hi_basic/hi_basic/hi_log.py
 Description: 
 
@@ -32,19 +32,17 @@ HIKIT_LOGPATH = os.path.join(HIKIT_USERPATH, "log")
 HIKIT_CONFIG_NAME = "hiconfig.json"
 HIKIT_LOG_LEVEL = "log_level"
 _HiLog = logging.getLogger("HiLog")
-
-
-class _HiLogColor(object):
-    GREEN = "\033[32m"
-    BLUE = "\033[34m"
-    YELLOW = "\033[33m"
-    RED = "\033[31m"
-    WHITE = "\033[37m"
-    DEFAULT = "\033[0m"
-    pass
-
-
 HiLog = _HiLog
+
+# class _HiLogColor(object):
+#     GREEN = "\033[32m"
+#     BLUE = "\033[34m"
+#     YELLOW = "\033[33m"
+#     RED = "\033[31m"
+#     WHITE = "\033[37m"
+#     DEFAULT = "\033[0m"
+#     pass
+
 # class HiLog(object):
 #     @classmethod
 #     def critical(cls, text: str):

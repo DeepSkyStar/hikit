@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2022-05-08 19:47:48
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-04-09 16:07:05
+LastEditTime: 2024-04-09 19:27:09
 FilePath: /hikit/hi_basic/hi_basic/hi_tranmitter/hi_git_transmitter.py
 Description: 
 
@@ -30,7 +30,7 @@ class HiGit(object):
     def __init__(self,
                  local: str = "",
                  remote: str = "",
-                 default_branch: str = "master",
+                 default_branch: str = "",
                  check_status=True) -> None:
         self._name = os.path.split(local)[1]
         self._local = local
@@ -78,6 +78,15 @@ class HiGit(object):
                 self._is_cloned = False
 
         self._is_cloned = True
+
+        # Try fetch default branch.
+        ret_code, output = self._command("git symbolic-ref --short -q HEAD")
+        if ret_code == 0:
+            lines = output.splitlines()
+            if len(lines) > 0:
+                self._default_branch = lines[0]
+        else:
+            return None
 
         # Try fetch branchs.
         ret_code, output = self._command("git branch")
@@ -287,7 +296,7 @@ class HiGitTransmitter(HiTransmitter):
         if info is not None and HiGitTransferInfoKey.DEFAULT_BRANCH in info:
             self._default_branch = info[HiGitTransferInfoKey.DEFAULT_BRANCH]
         else:
-            self._default_branch = "main"
+            self._default_branch = ""
 
         self._git = HiGit(local=self.local, remote=self.remote, default_branch=self._default_branch, check_status=False)
         pass

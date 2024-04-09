@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2022-05-08 19:47:48
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-04-09 15:53:23
+LastEditTime: 2024-04-09 19:18:04
 FilePath: /hikit/hi_basic/hi_basic/hi_app.py
 Description: 
 
@@ -175,7 +175,7 @@ class HiAppInfo(HiConfig):
 
     @property
     def default_branch(self) -> str:
-        """If is empty, will use master."""
+        """If is empty, will use default."""
         return self.items[HiAppInfoKey.DEFAULT_BRANCH]
 
     @property
