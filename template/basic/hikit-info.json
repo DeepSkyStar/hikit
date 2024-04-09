@@ -5,6 +5,7 @@
     "version": "1.0.0",
     "type": "basic",
     "remote": "",
+    "default_branch": "main",
     "is_default" : false,
     "commands":[
     ],

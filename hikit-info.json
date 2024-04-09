@@ -5,6 +5,7 @@
     "version": "1.0.0",
     "type": "app",
     "remote": "git@github.com:DeepSkyStar/hikit.git",
+    "default_branch": "main",
     "is_default" : true,
     "commands":[
         "hi"

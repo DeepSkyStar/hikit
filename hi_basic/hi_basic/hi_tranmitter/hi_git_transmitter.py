@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2022-05-08 19:47:48
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-04-09 15:53:48
+LastEditTime: 2024-04-09 16:07:05
 FilePath: /hikit/hi_basic/hi_basic/hi_tranmitter/hi_git_transmitter.py
 Description: 
 
@@ -287,7 +287,7 @@ class HiGitTransmitter(HiTransmitter):
         if info is not None and HiGitTransferInfoKey.DEFAULT_BRANCH in info:
             self._default_branch = info[HiGitTransferInfoKey.DEFAULT_BRANCH]
         else:
-            self._default_branch = "master"
+            self._default_branch = "main"
 
         self._git = HiGit(local=self.local, remote=self.remote, default_branch=self._default_branch, check_status=False)
         pass
