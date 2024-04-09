@@ -109,8 +109,9 @@ hi create tool-name
 也可以查看`hi create -h`，创建其他类型的工具，如基础库或其他语言的工具模版。
 
 ### 工具的版本管理和发布
-提交app到hikits中，将app提交到hikits
-hikits commit
+修改工具`hikit-info.json`文件中的描述和远程地址，并传到一个git服务器上。
+使用`hi dev`的工具可以进行一些简单的版本管理。
+使用`hi publish`可以将工具发布到当前的源上。发布前请先确认有直接写入主分支的权限。
 
 ## hikit目录说明
 hikit只会运行在用户目录下，其中`~/.hikit`为hikit的运行目录，安装的软件都会存放在这里。
