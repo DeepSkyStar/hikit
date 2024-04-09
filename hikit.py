@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2022-05-08 19:47:48
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-04-09 15:49:44
+LastEditTime: 2024-04-09 20:12:45
 FilePath: /hikit/hikit.py
 Description: 
 
@@ -65,34 +65,48 @@ def __show(args):
 
 
 def __update(args):
-    only_list = args["list"]
+    only_list = args["all"]
+    is_all = args["all"]
+    name = args["name"]
 
     # Update hikit.
-    if not only_list:
+    if name and name == "hi" or is_all:
         HiLog.info(HiText("menu_update_app_start", "Start update: ") + "hikit")
         HiInstaller(HiAppInfo.from_installed("hikit")).install()
         HiLog.info(HiText("menu_update_app_end", "Finished update: ") + "hikit")
+        if not is_all:
+            return None
 
     # Update Source list.
     if not HiPath.appsource():
         HiLog.info(HiText("menu_update_no_source_warning", "Source doesn't setup!"))
         HiLog.info(HiText("menu_update_no_source_warning_help", "Please use `hi list --setup <source-url>` setup source at first."))
         return None
-
+    
     HiLog.info(HiText("menu_update_app_start", "Start update: ") + "source")
     HiSource().update()
     HiLog.info(HiText("menu_update_app_end", "Finished update: ") + "source")
 
-    if only_list:
+    if is_all:
+        # Update Apps.
+        installed_apps = HiSource().installed_apps()
+        for app in installed_apps:
+            HiLog.info(HiText("menu_update_app_start", "Start update: ") + app)
+            installer = HiInstaller(HiAppInfo.from_installed(app))
+            installer.install()
+            HiLog.info(HiText("menu_update_app_end", "Finished update: ") + app)
         return None
-
-    # Update Apps.
-    installed_apps = HiSource().installed_apps()
-    for app in installed_apps:
-        HiLog.info(HiText("menu_update_app_start", "Start update: ") + app)
-        installer = HiInstaller(HiAppInfo.from_installed(app))
-        installer.install()
-        HiLog.info(HiText("menu_update_app_end", "Finished update: ") + app)
+    
+    if name:
+        installed_apps = HiSource.installed_apps()
+        if name in installed_apps:
+            HiLog.info(HiText("menu_update_app_start", "Start update: ") + name)
+            installer = HiInstaller(HiAppInfo.from_installed(name))
+            installer.install()
+            HiLog.info(HiText("menu_update_app_end", "Finished update: ") + name)
+        else:
+            HiLog.info(name + HiText("menu_update_app_not_installed", " is not installed!"))
+        return None
     pass
 
 
@@ -326,26 +340,35 @@ def __setup_parser():
         help=HiText("menu_update_help", "Update apps and list."),
         description=textwrap.dedent(HiText("menu_update_desc", """
         use,
-        hikit update
-
+        hi update
         will update list automatically, install all default tools,
         and update all installed tools.
 
         use,
-        hikit update [app name]
-        Can only update app.
+        hi update hi
+        to update hikit.
+                                           
+        use,
+        hi update [app name]
+        to update app.
 
         use,
-        hikit update --list or hikist update -l,
-        Can only update list.
+        hi update --all or hikist update -a,
+        Will update list, hikit and installed apps.
         """))
         )
 
     parser_update.add_argument(
-        '-l',
-        '--list',
-        help=HiText("menu_update_list_desc", "Only update list."),
+        '-a',
+        '--all',
+        help=HiText("menu_update_list_desc", "Update all."),
         action="store_true"
+        )
+
+    parser_update.add_argument(
+        help=HiText("menu_uninstall_name_desc", "The app's name or a local app' path. Not necessary."),
+        nargs='?',
+        default=""
         )
 
     parser_update.set_defaults(func=__update)
