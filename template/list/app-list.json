@@ -2,10 +2,10 @@
     "group":
     [
         {
-            "name": "Sample",
-            "desc": "should delete the sample, and add some apps",
+            "name": "hotkey",
+            "desc": "For easy define hotkey.",
             "apps": [
-                "hikit_sample"
+                "hotkey"
             ]
         }
     ]

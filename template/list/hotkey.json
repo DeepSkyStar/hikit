@@ -1,0 +1,16 @@
+{
+    "name": "hotkey",
+    "owner": "Cosmade",
+    "desc": "For easy define hotkey.",
+    "version": "1.0.0",
+    "type": "app",
+    "remote": "git@github.com:DeepSkyStar/hotkey.git",
+    "is_default" : false,
+    "commands":[
+        "hotkey"
+    ],
+    "resources":[
+    ],
+    "dependencies":[
+    ]
+}
