@@ -1,0 +1,16 @@
+{
+    "name": "<PROJECT_NAME>",
+    "owner": "",
+    "desc": "<PROJECT_NAME>",
+    "version": "1.0.0",
+    "type": "app",
+    "remote": "",
+    "is_default" : false,
+    "commands":[
+        "<PROJECT_NAME>"
+    ],
+    "resources":[
+    ],
+    "dependencies":[
+    ]
+}

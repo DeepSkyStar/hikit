@@ -1,0 +1,16 @@
+{
+    "name": "<PROJECT_NAME>",
+    "owner": "",
+    "desc": "<PROJECT_NAME>",
+    "version": "1.0.0",
+    "type": "flutter",
+    "remote": "",
+    "is_default" : false,
+    "commands":[
+        "<PROJECT_NAME>"
+    ],
+    "resources":[
+    ],
+    "dependencies":[
+    ]
+}

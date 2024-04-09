@@ -1,0 +1,12 @@
+{
+    "group":
+    [
+        {
+            "name": "Sample",
+            "desc": "should delete the sample, and add some apps",
+            "apps": [
+                "hikit_sample"
+            ]
+        }
+    ]
+}

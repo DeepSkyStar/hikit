@@ -1,0 +1,13 @@
+{
+    "name": "<PROJECT_NAME>",
+    "owner": "",
+    "desc": "<PROJECT_NAME>",
+    "version": "1.0.0",
+    "type": "basic",
+    "remote": "",
+    "is_default" : false,
+    "commands":[
+    ],
+    "resources":[
+    ]
+}
