@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2022-05-08 19:47:48
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-04-09 20:16:25
+LastEditTime: 2024-04-09 20:23:39
 FilePath: /hikit/hikit.py
 Description: 
 
@@ -98,7 +98,7 @@ def __update(args):
         return None
     
     if name:
-        installed_apps = HiSource.installed_apps()
+        installed_apps = HiSource().installed_apps()
         if name in installed_apps:
             HiLog.info(HiText("menu_update_app_start", "Start update: ") + name)
             installer = HiInstaller(HiAppInfo.from_installed(name))
