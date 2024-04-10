@@ -4,7 +4,7 @@
     "desc": "Tool for manager python tools.",
     "version": "1.0.0",
     "type": "app",
-    "remote": "git@github.com:DeepSkyStar/hikit.git",
+    "remote": "https://github.com/DeepSkyStar/hikit.git",
     "is_default" : true,
     "commands":[
         "hi"
