@@ -2,8 +2,8 @@
     "group":
     [
         {
-            "name": "hotkey",
-            "desc": "For easy define hotkey.",
+            "name": "Sample",
+            "desc": "Just add app to the apps list, and copy the info.json to here and modify name to app name.",
             "apps": [
                 "hotkey"
             ]
