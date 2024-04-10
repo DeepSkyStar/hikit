@@ -164,5 +164,14 @@ You can check if the file has been updated during that period of time.
 
 ## How to Contribute
 
-This project follows the Git-Flow. If the submission only involves bug fixes and document updates, please mark [Fix]. If there are feature updates, please mark [Feature].
+### Branch and Commit Msg
 
+This project follows the Git-Flow specification. If a commit only involves bug fixes and document updates, please mark it with [Fix]. If it includes feature updates, please mark it with [Feature].
+
+### Coding Guidelines
+
+All **class name** should start with an uppercase letter and use camel case, the prefix must be **Hi**, such as **HiConfig**.
+All **file name** should use lowercase letters with underscores, the prefix must be **hi**, such as **hi_basic**.
+All **enumerations** and **constants** should be in uppercase, such as **USER_PATH**.
+All **internal variables** should be prefixed with an underscore '_'.
+All **variables, function names, etc.**, without special provisions, should use lowercase letters with underscores, such as **hi_basic**.
