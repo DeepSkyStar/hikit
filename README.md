@@ -170,8 +170,9 @@ This project follows the Git-Flow specification. If a commit only involves bug f
 
 ### Coding Guidelines
 
-All **class name** should start with an uppercase letter and use camel case, the prefix must be **Hi**, such as **HiConfig**.
-All **file name** should use lowercase letters with underscores, the prefix must be **hi**, such as **hi_basic**.
-All **enumerations** and **constants** should be in uppercase, such as **USER_PATH**.
-All **internal variables** should be prefixed with an underscore '_'.
-All **variables, function names, etc.**, without special provisions, should use lowercase letters with underscores, such as **hi_basic**.
+This project follow some simple guidelines:
+
+* All **class name** should start with an uppercase letter and use camel case, the prefix must be **Hi**, such as **HiConfig**.
+* All **enumerations** and **constants** should be in uppercase, such as **USER_PATH**.
+* All **internal variables** should be prefixed with an underscore '_'.
+* All **variables, function names, file name, etc.**, without special provisions, should use lowercase letters with underscores, such as **hi_basic**.
