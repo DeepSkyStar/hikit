@@ -9,7 +9,7 @@
 hikit基于Git开发，包括权限控制，工具管理，数据存储等等都通过Git完成。
 
 ## 如何使用
-这一章节将告诉你如何使用该工具，只需按以下步骤逐步进行即可。如果你希望编写自用的小工具请跳转到[使用模版进行工具开发](###使用模版进行工具开发)以及[工具的版本管理和发布](###工具的版本管理和发布)。
+这一章节将告诉你如何使用该工具，只需按以下步骤逐步进行即可。如果你希望编写自用的小工具请跳转到 [如何开发工具](#how_to_dev)。
 
 ### 安装hikit
 把该仓库克隆到你喜欢的地方:
@@ -41,11 +41,11 @@ hi
 hi list
 ```
 
-会请求输入存放工具列表的git仓库地址，如果你没有，你应该先创建一个仓库，并确保你拥有读写权限，如果没有写入权限，那么仅能获取工具信息，但无法发布或修改新工具。**地址目前暂时只支持git不支持https传输**。
+会请求输入存放工具列表的git仓库地址，如果你没有，你应该先创建一个仓库，并确保你拥有读写权限，如果没有写入权限，那么仅能获取工具信息，但无法发布或修改新工具。**要确保不用输入密码，否则会很烦**。
 
 以下以sample列表作为例子:
 ```shell
-hi list --setup git@github.com:DeepSkyStar/hikit-source.git
+hi list --setup https://github.com/DeepSkyStar/hikit-source.git
 ```
 
 如果需要创建自己的软件源，可以使用以下命令:
@@ -99,6 +99,8 @@ hi uninstall hi
 
 可以卸载hikit。
 
+## <a id="how_to_dev">如何开发工具</a>
+
 ### 使用模版进行工具开发
 你可以通过提供的模版快速开发自己需要的工具:
 
@@ -113,14 +115,49 @@ hi create tool-name
 使用`hi dev`的工具可以进行一些简单的版本管理。
 使用`hi publish`可以将工具发布到当前的源上。发布前请先确认有直接写入主分支的权限。
 
-## hikit目录说明
+### hikit目录说明
 hikit只会运行在用户目录下，其中`~/.hikit`为hikit的运行目录，安装的软件都会存放在这里。
 
 `~/.hikit_user`存放所有的用户数据，包括日志信息。
 详细目录定义在`hi_path.py`文件中。
 
-## hi basic基础库说明
+### hi basic基础库说明
 待补充。
+
+使用`from hi_basic import *`可以使用hikit提供的一系列便捷工具。
+详细用法见该文件的`__mian__`函数和注释。本文档只进行简单介绍。
+
+#### HiLog
+用于打印日志信息，用户日志会自动保存在`~/.hikit_user`目录下。
+可以通过`hi log`命令设置日志输出的级别。
+
+#### HiConfig
+一个基于json格式快速读写用户数据的工具。
+
+例如:
+```python
+config = HiConfig("filepath")
+config.writer["key"] = "value"
+print(config["key"])
+```
+
+即可快速读写用户数据。
+使用 `config.writer.autofill` 或 `config.w.a` 在中间key不存在时会自动填充默认值而不会直接报错。
+
+#### HiFile
+定义了一些常用的文件操作，如
+
+```python
+stamp = HiFileStamp("file_path")
+# after some operations.
+print(stamp.is_changed)
+stamp.update()
+```
+
+可以检查文件是否在该段时间中更新了。
+
+`HiFile.ensure_dirs()`可以确保某个路径存在，不存在则自动创建整个路径。
+`HiFile.find_first()`会返回找到的第一个文件。
 
 ## 如何贡献
 本项目分支遵循Git-Flow规范，提交中如果只涉及bugfix和文档更新请标识[Fix]，如果有功能更新请标识[Feature]。
