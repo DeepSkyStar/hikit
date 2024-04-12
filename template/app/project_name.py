@@ -1,17 +1,6 @@
 #!/usr/bin/env python3
 # coding=utf-8
-'''
-Author: Cosmade
-Date: 2022-05-08 19:47:48
-LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2023-10-26 16:00:04
-FilePath: /hikit/template/app/project_name.py
-Description: 
 
-Copyright (c) 2023 by Shenzhen Hyper Visual Co., Ltd. All Rights Reserved.
-'''
-#!/usr/bin/env python3
-from ensurepip import version
 from hi_basic import *
 import os
 import argparse
