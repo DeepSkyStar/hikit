@@ -6,6 +6,8 @@ Since these tools are usually used internally within the team or personally, the
 
 Therefore, I have created this hikit tool to manage the distribution and deployment of private Python tools, and it also provides a series of commonly used basic libraries. Hikit is developed based on Git, including permission control, tool management, and data storage, all of which are completed through Git.
 
+Also see [中文说明](README-zh.md)
+
 ## How to Use
 
 This section will tell you how to use this tool. Simply follow the steps below. If you wish to write your own small tools, please skip to the section [How to develop](#how_to_dev).
