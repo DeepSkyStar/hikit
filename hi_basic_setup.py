@@ -37,7 +37,7 @@ def install_pip_module(path: str):
     distlist = os.listdir(distpath)
     os.chdir(distpath)
     print("Starting install " + distlist[0] + "...")
-    os.system("pip3 install " + distlist[0])
+    os.system("python3 -m pip install " + distlist[0])
     os.chdir(lastpath)
     pass
 

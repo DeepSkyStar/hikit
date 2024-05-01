@@ -175,7 +175,7 @@ class HiInstaller(object):
     def _update_requirements(self, path: str) -> None:
         requirements_file = os.path.join(path, "requirements.txt")
         if os.path.exists(requirements_file):
-            os.system(HiSys.to_bash("pip3 install -r " + requirements_file))
+            os.system(HiSys.to_bash("python3 -m pip install -r " + requirements_file))
         pass
 
     pass

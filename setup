@@ -20,7 +20,7 @@
 ### 
 
 rm -r -f ~/.hikit
-pip3 install -r requirements.txt
+python3 -m pip install -r requirements.txt
 python3 hi_basic_setup.py
 python3 hi_setup.py
 
