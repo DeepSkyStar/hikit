@@ -2,9 +2,9 @@
 # coding=utf-8
 '''
 Author: Cosmade
-Date: 2022-05-08 20:02:21
+Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-04-09 15:51:58
+LastEditTime: 2024-05-04 18:27:07
 FilePath: /hikit/hi_basic/hi_basic/hi_sys.py
 Description: 
 
@@ -16,7 +16,10 @@ You may obtain a copy of the License at
 http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an 
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 '''
 
 import os

@@ -2,9 +2,9 @@
 # coding=utf-8
 '''
 Author: Cosmade
-Date: 2022-05-08 19:47:48
+Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-04-09 15:53:27
+LastEditTime: 2024-05-04 18:25:13
 FilePath: /hikit/hi_basic/hi_basic/__init__.py
 Description: 
 
@@ -16,9 +16,11 @@ You may obtain a copy of the License at
 http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an 
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 '''
-
 
 from .hi_log import *
 from .hi_decorator import *
