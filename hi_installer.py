@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-04 18:23:03
+LastEditTime: 2024-05-06 20:49:04
 FilePath: /hikit/hi_installer.py
 Description: 
 
@@ -76,6 +76,7 @@ class HiInstaller(object):
         if installed_app is None:
             self._repo.transmitter.download()
         else:
+            # TODO: After changed url for app, consider before app's behavior.
             removing_commands = self._info.commands
             self._repo.transmitter.update()
             self._remove_commands(removing_commands)

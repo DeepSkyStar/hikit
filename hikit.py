@@ -489,7 +489,7 @@ def __setup_parser():
         "group",
         help=HiText("menu_publish_group_desc", "Publish app to a exist group"),
     )
-
+    # TODO: Add argument to change url.
     parser_publish.set_defaults(func=__publish)
 
     # Switch app version.
