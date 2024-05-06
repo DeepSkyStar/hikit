@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-12 20:37:40
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-04 18:24:21
+LastEditTime: 2024-05-06 21:38:42
 FilePath: /hikit/hikit.py
 Description: 
 
@@ -258,7 +258,7 @@ def __log(args):
     elif is_notset:
         HiConfig.hikit_config().writer[HIKIT_LOG_LEVEL] = HiLogLevel.NOTSET
     else:
-        HiLog.info(HiText("menu_log_level_not_change", "Log level:", HiConfig.hikit_config()[HIKIT_LOG_LEVEL]))
+        HiLog.info(HiText("menu_log_level_not_change", "Log level:") + HiConfig.hikit_config()[HIKIT_LOG_LEVEL])
         return None
     HiLog.info(HiText("menu_log_level_change_text", "Log level change to: ") + HiConfig.hikit_config()[HIKIT_LOG_LEVEL])
     pass
