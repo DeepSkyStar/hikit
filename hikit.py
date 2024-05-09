@@ -147,7 +147,7 @@ def __install(args):
     # install app
     if name:
         app_info = HiAppInfo.from_source(name)
-        if name == "hikit":
+        if name == "hi":
             app_info = HiAppInfo.from_installed(name=name)
         if app_info is None:
             HiLog.info(name + HiText("menu_install_not_exist", " not exist!"))
