@@ -1,5 +1,7 @@
 # <PROJECT_NAME>
 
+[Release Note](release-notes.md)
+
 这是一个...
 
 ## 如何引用
