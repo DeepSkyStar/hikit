@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2022-05-08 19:47:48
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-04 18:24:11
+LastEditTime: 2024-05-09 15:51:30
 FilePath: /hikit/hi_basic/setup.py
 Description: 
 
@@ -29,7 +29,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="hi_basic",
-    version="1.0.0",
+    version="1.1.0",
     author="Cosmade",
     author_email="deepskystar@outlook.com",
     description="Hi Basic Lib",

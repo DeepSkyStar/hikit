@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-05-03 19:03:35
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-04 18:22:55
+LastEditTime: 2024-05-09 15:51:02
 FilePath: /hikit/hi_lang.py
 Description: 
 
