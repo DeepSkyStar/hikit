@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-12 20:37:40
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-09 15:34:59
+LastEditTime: 2024-05-09 15:46:07
 FilePath: /hikit/hikit.py
 Description: 
 
@@ -132,11 +132,16 @@ def __update(args):
 def __install(args):
     is_all = args["all"]
     name = args["name"]
+    branch = args["branch"]
+    if branch is not None and len(branch) == 1:
+        branch = branch[0]
+    else:
+        branch = None
     # install all
     if is_all:
         for app in HiSource().group_list.all_apps():
             HiLog.info(app + HiText("menu_install_start", " start install..."))
-            HiInstaller(HiAppInfo.from_source(app)).install()
+            HiInstaller(HiAppInfo.from_source(app)).install(branch=branch)
             HiLog.info(app + HiText("menu_install_end", " finished install!"))
         return None
     # install app
@@ -149,7 +154,7 @@ def __install(args):
             return None
 
         HiLog.info(name + HiText("menu_install_start", " start install..."))
-        HiInstaller(app_info).install()
+        HiInstaller(app_info).install(branch=branch)
         HiLog.info(name + HiText("menu_install_end", " finished install!"))
         return None
 
@@ -416,6 +421,13 @@ def __setup_parser():
         '--all',
         help=HiText("menu_install_all_desc", "Install all apps."),
         action="store_true"
+        )
+    
+    parser_install.add_argument(
+        '-b',
+        '--branch',
+        help=HiText("menu_install_branch_desc", "Install app by another branch."),
+        action="store"
         )
 
     parser_install.set_defaults(func=__install)

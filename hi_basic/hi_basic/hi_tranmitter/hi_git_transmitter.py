@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2022-05-08 19:47:48
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-04-09 19:27:09
+LastEditTime: 2024-05-09 15:41:13
 FilePath: /hikit/hi_basic/hi_basic/hi_tranmitter/hi_git_transmitter.py
 Description: 
 
@@ -338,9 +338,12 @@ class HiGitTransmitter(HiTransmitter):
                 raise IOError(error_msg)
         pass
 
-    def update(self) -> None:
+    def update(self, branch: str = None) -> None:
         """Force update."""
-        self._git.force_update(self._default_branch)
+        if branch is None:
+            self._git.force_update(self._default_branch)
+        else:
+            self._git.force_update(branch=branch)
         pass
 
     def switch(self, version: str) -> None:

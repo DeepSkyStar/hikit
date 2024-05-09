@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-06 20:49:04
+LastEditTime: 2024-05-09 15:42:35
 FilePath: /hikit/hi_installer.py
 Description: 
 
@@ -70,7 +70,7 @@ class HiInstaller(object):
                 conflict_list.append(command)
         return conflict_list
 
-    def install(self, include_dependency: bool = True) -> None:
+    def install(self, include_dependency: bool = True, branch: str = None) -> None:
         """Install a new one."""
         installed_app = HiAppInfo.from_installed(self._info.name)
         if installed_app is None:
@@ -78,7 +78,7 @@ class HiInstaller(object):
         else:
             # TODO: After changed url for app, consider before app's behavior.
             removing_commands = self._info.commands
-            self._repo.transmitter.update()
+            self._repo.transmitter.update(branch=branch)
             self._remove_commands(removing_commands)
         installed_app = HiAppInfo.from_installed(self._info.name)
 

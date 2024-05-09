@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2022-05-08 19:47:48
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-04-09 15:53:44
+LastEditTime: 2024-05-09 15:42:14
 FilePath: /hikit/hi_basic/hi_basic/hi_tranmitter/hi_transmitter.py
 Description: 
 
@@ -50,7 +50,7 @@ class HiTransmitter(object):
     def upload(self, info: str = "") -> None: 
         raise ValueError(type(self).__name__ + " not support upload Yet!")
 
-    def update(self) -> None:
+    def update(self, branch: str = None) -> None:
         raise ValueError(type(self).__name__ + " not support update Yet!")
 
     def switch(self, version: str) -> None:
