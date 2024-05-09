@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-12 20:37:40
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-09 15:46:07
+LastEditTime: 2024-05-09 16:04:03
 FilePath: /hikit/hikit.py
 Description: 
 
@@ -135,6 +135,7 @@ def __install(args):
     branch = args["branch"]
     if branch is not None and len(branch) == 1:
         branch = branch[0]
+        HiLog.info(HiText("menu_install_branch", "branch is ") + branch)
     else:
         branch = None
     # install all

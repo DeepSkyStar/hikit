@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2022-05-08 19:47:48
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-09 15:41:13
+LastEditTime: 2024-05-09 16:02:30
 FilePath: /hikit/hi_basic/hi_basic/hi_tranmitter/hi_git_transmitter.py
 Description: 
 
@@ -156,9 +156,9 @@ class HiGit(object):
         """Return type is list[str]."""
         return self._remote_branchs
 
-    def force_update(self, branch: str = "") -> bool:
+    def force_update(self, branch: str = None) -> bool:
         """Return is stash."""
-        if not branch:
+        if branch is None:
             branch = self._default_branch
 
         is_stash = False
@@ -301,7 +301,7 @@ class HiGitTransmitter(HiTransmitter):
         self._git = HiGit(local=self.local, remote=self.remote, default_branch=self._default_branch, check_status=False)
         pass
 
-    def download(self) -> None:
+    def download(self, branch: str = None) -> None:
         """Download."""
         if os.path.exists(self.local):
             raise IOError(self.local + " already exist, download failed!")
@@ -310,6 +310,8 @@ class HiGitTransmitter(HiTransmitter):
             HiLog.warning("Git clone failed.")
         elif result[0] != 0:
             HiLog.warning(result[1])
+        if branch is not None:
+            self.update(branch=branch)
         pass
 
     def upload(self, info: str = "") -> None:
@@ -340,10 +342,7 @@ class HiGitTransmitter(HiTransmitter):
 
     def update(self, branch: str = None) -> None:
         """Force update."""
-        if branch is None:
-            self._git.force_update(self._default_branch)
-        else:
-            self._git.force_update(branch=branch)
+        self._git.force_update(branch)
         pass
 
     def switch(self, version: str) -> None:
