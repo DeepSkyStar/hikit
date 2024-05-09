@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-12 20:37:40
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-09 16:04:03
+LastEditTime: 2024-05-09 16:06:31
 FilePath: /hikit/hikit.py
 Description: 
 
@@ -428,6 +428,7 @@ def __setup_parser():
         '-b',
         '--branch',
         help=HiText("menu_install_branch_desc", "Install app by another branch."),
+        nargs=1,
         action="store"
         )
 
