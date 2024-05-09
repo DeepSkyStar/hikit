@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-12 20:37:40
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-09 16:06:31
+LastEditTime: 2024-05-09 18:29:33
 FilePath: /hikit/hikit.py
 Description: 
 
@@ -29,7 +29,6 @@ import textwrap
 from hi_basic import *
 from hi_menu_display import *
 from hi_installer import *
-from hi_template import *
 
 
 def __list(args):
