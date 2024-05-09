@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-12 20:37:40
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-06 21:38:42
+LastEditTime: 2024-05-09 15:32:31
 FilePath: /hikit/hikit.py
 Description: 
 
@@ -63,7 +63,23 @@ def __search(args):
 
 
 def __show(args):
-    HiLog.warning("Not support Yet!")
+    name = args["name"]
+    if name:
+        app = HiAppInfo.from_installed(name)
+        if app is None:
+            print(name + HiText("menu_show_not_exist", " not exist!"))
+            return None
+
+    # load from local
+    app = HiAppInfo.from_local()
+    if app is None:
+        print(name + HiText("menu_show_not_exist", " not exist!"))
+        return None
+
+    print(HiText("menu_show_tile_name", "Name: ") + app.name)
+    print(HiText("menu_show_tile_name", "Version: ") + app.version)
+    print(HiText("menu_show_tile_name", "Desc: ") + app.desc)
+    print(HiText("menu_show_tile_name", "Commands: ") + app.commands)
     pass
 
 
