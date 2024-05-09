@@ -4,8 +4,8 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-04 18:22:22
-FilePath: /hikit/hi_template.py
+LastEditTime: 2024-05-09 18:27:51
+FilePath: /hikit/hi_basic/hi_basic/hi_template.py
 Description: 
 
 Copyright 2024 Cosmade
@@ -23,7 +23,9 @@ limitations under the License.
 '''
 
 import os
-from hi_basic import *
+from .hi_log import *
+from .hi_path import *
+from .hi_sys import *
 
 
 class HiTemplate(object):
@@ -39,7 +41,7 @@ class HiTemplate(object):
 
     def __init__(self,
                  project_name: str,
-                 template_name: str):
+                 template_dir: str):
         """For create template.
 
         Args:
@@ -48,24 +50,22 @@ class HiTemplate(object):
         """
         super().__init__()
         self._project_name = project_name.lower()
+        self._template_dir = template_dir
         self._template_root = []
         self._template_files = {}
-        self._load_template(template_name)
+        self._load_template(template_dir)
         pass
 
-    def _load_template(self, name: str):
-        curdir = os.path.dirname(os.path.abspath(__file__))
-        template_dir = os.path.join(curdir, "template")
-        template_path = os.path.join(template_dir, name)
-        if not os.path.exists(template_path):
+    def _load_template(self, template_dir: str):
+        if not os.path.exists(template_dir):
             raise IOError("Template dir not exist, please update or reinstall the hikit!")
 
         # Fetch file name
-        self._template_root = os.listdir(template_path)
+        self._template_root = os.listdir(template_dir)
 
         # Fetch the file content and replace variables.
         self._load_contents(
-            template_path,
+            template_dir,
             self._template_root,
             self._template_files)
         pass
@@ -85,7 +85,7 @@ class HiTemplate(object):
                     os.listdir(subpath),
                     subpathfiles)
             else:
-                HiLog.debug("read template file:" + subpath)
+                # HiLog.debug("read template file:" + subpath)
                 with open(subpath, "r") as tempfile:
                     content = tempfile.read()
                     content = self._replace_content(content)
@@ -154,7 +154,7 @@ class HiAppTemplate(HiTemplate):
 
     def __init__(self, project_name: str):
         """Init."""
-        super().__init__(project_name, "app")
+        super().__init__(project_name, HiPath.templatepath("app"))
     pass
 
 
@@ -163,7 +163,7 @@ class HiPyModuleTemplate(HiTemplate):
 
     def __init__(self, project_name: str):
         """Init."""
-        super().__init__(project_name, "basic")
+        super().__init__(project_name, HiPath.templatepath("basic"))
     pass
 
 
@@ -172,7 +172,7 @@ class HiSourceTemplate(HiTemplate):
 
     def __init__(self, project_name: str):
         """Init."""
-        super().__init__(project_name, "list")
+        super().__init__(project_name, HiPath.templatepath("list"))
     pass
 
 
@@ -181,7 +181,7 @@ class HiFlutterTemplate(HiTemplate):
 
     def __init__(self, project_name: str):
         """Init."""
-        super().__init__(project_name, "flutter")
+        super().__init__(project_name, HiPath.templatepath("flutter"))
 
     def generate_to_path(self, path: str = os.getcwd(), is_force: bool = False):
         """Generate file."""

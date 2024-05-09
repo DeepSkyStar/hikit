@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-04 18:25:13
+LastEditTime: 2024-05-09 18:24:54
 FilePath: /hikit/hi_basic/hi_basic/__init__.py
 Description: 
 
@@ -41,3 +41,4 @@ from .hi_runloop import *
 from .hi_timer import *
 from .hi_event import *
 from .hi_tranmitter import *
+from .hi_template import *
