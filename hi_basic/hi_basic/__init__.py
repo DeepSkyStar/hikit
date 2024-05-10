@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-09 18:24:54
+LastEditTime: 2024-05-10 20:43:05
 FilePath: /hikit/hi_basic/hi_basic/__init__.py
 Description: 
 
@@ -27,7 +27,6 @@ from .hi_decorator import *
 from .hi_path import *
 from .hi_file import *
 from .hi_sys import *
-from .hi_text import *
 from .hi_cipher import *
 from .hi_config import *
 from .hi_regex import *
@@ -42,3 +41,5 @@ from .hi_timer import *
 from .hi_event import *
 from .hi_tranmitter import *
 from .hi_template import *
+from .hi_multilang import *
+from .hi_text import *

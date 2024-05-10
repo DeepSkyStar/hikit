@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-12 20:37:40
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-04 18:27:12
+LastEditTime: 2024-05-11 00:52:13
 FilePath: /hikit/hi_basic/hi_basic/hi_text.py
 Description: 
 
@@ -23,31 +23,35 @@ limitations under the License.
 '''
 
 import os
-import sys
-import gettext
+import inspect
 from .hi_log import *
 from .hi_config import *
+from .hi_multilang import *
 
+__hi_text_dict = {}
 
 def HiText(key: str, text: str = "") -> str:
     """Hi Str for translate."""
+    stack = inspect.stack()
+    caller_info = stack[1]
+    filepath = caller_info[1]
+
+    global __hi_text_dict
+    if filepath in __hi_text_dict:
+        lang = __hi_text_dict[filepath]
+        if isinstance(lang, HiMultiLang):
+            return lang.get_text(filepath, key)
+        elif text:
+            return text
+    else:
+        langpath = HiMultiLang.find_lang_file(os.path.dirname(filepath))
+        if langpath:
+            lang = HiMultiLang(os.path.dirname(langpath))
+            __hi_text_dict[filepath] = lang
+            return lang.get_text(filepath, key)
+        else:
+            __hi_text_dict[filepath] = ""
+
     if text:
         return text
     return key
-
-
-class HiTextManager(object):
-    """For easy multi language."""
-
-    def __init__(self) -> None:
-        super().__init__()
-        pass
-
-    def select(self, lang: str = "") -> bool:
-        return False
-
-    def support_list(self) -> list:
-        """Return type is list[str]."""
-        return []
-
-    pass

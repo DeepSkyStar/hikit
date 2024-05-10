@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-12 20:37:40
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-09 18:29:33
+LastEditTime: 2024-05-11 01:27:31
 FilePath: /hikit/hikit.py
 Description: 
 
@@ -230,11 +230,6 @@ def __publish(args):
     pass
 
 
-def __switch(args):
-    HiLog.warning("Not support Yet!")
-    pass
-
-
 def __alias(args):
     command = args["command"]
     alias = args["alias"]
@@ -250,7 +245,28 @@ def __reset_alias(args):
 
 
 def __lang(args):
-    HiLog.warning("Not support Yet!")
+    generate = args["generate"]
+    set_lang = args["set"]
+    
+    if generate:
+        appinfo = HiAppInfo.from_local()
+        if appinfo is None:
+            HiLog.warning(HiText("menu_lang_generate_lang_not_app", "It's not a hi tool!"))
+            return None
+        
+        HiMultiLang.generate_lang_file(os.getcwd())
+        print(HiText("menu_lang_generate_lang_to", "Generate: ") + HiMultiLang.find_lang_file(os.getcwd()))
+        return None
+
+    if set_lang and len(set_lang) > 0:
+        HiConfig().writer[HiMultiLang.LANG_KEY] = set_lang[0]
+        print(HiText("menu_lang_set_lang_to", "Language change to: ") + set_lang[0])
+        return None
+
+    current_lang = HiConfig()[HiMultiLang.LANG_KEY]
+    if not current_lang:
+        current_lang = "en"
+    print(HiText("menu_lang_current_lang", "Current Lang is:") + current_lang + "\n")
     pass
 
 
@@ -279,9 +295,9 @@ def __log(args):
     elif is_notset:
         HiConfig.hikit_config().writer[HIKIT_LOG_LEVEL] = HiLogLevel.NOTSET
     else:
-        HiLog.info(HiText("menu_log_level_not_change", "Log level:") + HiConfig.hikit_config()[HIKIT_LOG_LEVEL])
+        HiLog.info(HiText("menu_log_level_not_change", "Log level:") + str(HiConfig.hikit_config()[HIKIT_LOG_LEVEL]))
         return None
-    HiLog.info(HiText("menu_log_level_change_text", "Log level change to: ") + HiConfig.hikit_config()[HIKIT_LOG_LEVEL])
+    HiLog.info(HiText("menu_log_level_change_text", "Log level change to: ") + str(HiConfig.hikit_config()[HIKIT_LOG_LEVEL]))
     pass
 
 
@@ -521,28 +537,6 @@ def __setup_parser():
     # TODO: Add argument to change url.
     parser_publish.set_defaults(func=__publish)
 
-    # Switch app version.
-    parser_switch = subparsers.add_parser(
-        name="switch",
-        help=HiText("menu_switch_help", "Switch app to a particular branch"),
-        description=textwrap.dedent(HiText("menu_switch_desc", """
-        Use `hi switch [app name] [branch]` switch app to particular branch.
-        Major for develop app.
-        """))
-        )
-
-    parser_switch.add_argument(
-        'name',
-        help=HiText("menu_switch_name_desc", "The app's name.")
-        )
-
-    parser_switch.add_argument(
-        'branch',
-        help=HiText("menu_switch_branch_desc", "The particular branch.")
-        )
-
-    parser_switch.set_defaults(func=__switch)
-
     # For make alias.
     parser_alias = subparsers.add_parser(
         name="alias",
@@ -574,6 +568,37 @@ def __setup_parser():
         )
 
     parser_reset_alias.set_defaults(func=__reset_alias)
+
+    parser_lang = subparsers.add_parser(
+        name="lang",
+        help=HiText("menu_lang_help", "For enable multi lang."),
+        description=textwrap.dedent(HiText("menu_alias_desc", """
+        Use `hi alias [command] [alias]` can make alias for command.
+        """))
+        )
+    
+    parser_lang_group = parser_lang.add_mutually_exclusive_group()
+    parser_lang_group.add_argument(
+        "-s",
+        "--set",
+        help=HiText("menu_lang_set_desc", "Change language, default is en. cn is Chinese"),
+        nargs=1,
+        action="store"
+    )    
+    parser_lang_group.add_argument(
+        "-g",
+        "--generate",
+        help=HiText("menu_lang_generate_desc", "Generate multi lang file for the project."),
+        action="store_true"
+    )
+    # parser_lang_group.add_argument(
+    #     "-c",
+    #     "--current",
+    #     help=HiText("menu_lang_current_desc", "Get current language."),
+    #     action="store_true"
+    # )
+
+    parser_lang.set_defaults(func=__lang)
 
     # Some dev tools.
     parser_dev = subparsers.add_parser(
