@@ -2,7 +2,7 @@
     "name": "hikit",
     "owner": "Cosmade",
     "desc": "Tool for manager python tools.",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "type": "app",
     "remote": "https://github.com/DeepSkyStar/hikit.git",
     "is_default" : true,

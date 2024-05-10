@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-12 20:37:40
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-11 01:27:31
+LastEditTime: 2024-05-11 01:58:06
 FilePath: /hikit/hikit.py
 Description: 
 
@@ -340,7 +340,7 @@ def __setup_parser():
         name="search",
         help=HiText("menu_search_help", "Use regular expressions to search app in list."),
         description=textwrap.dedent(HiText("menu_search_desc", """
-        Use `hi search [regex string]` can list all exist tools.
+        Use `hi search [regex string]` can use regular expressions to search app in list.
         """))
         )
 
@@ -357,7 +357,6 @@ def __setup_parser():
         help=HiText("menu_show_help", "Show tools infomation."),
         description=textwrap.dedent(HiText("menu_show_desc", """
         Use `hi show [app name]` can show the app's infomation.
-        Use `hi show --release-note [app name]` can show the app's release-note.
         """))
         )
 

@@ -1,0 +1,484 @@
+{
+    "support": [
+        "en",
+        "cn"
+    ],
+    "text": {
+        "hi_menu_display.py": {
+            "menu_list_name_title": {
+                "desc": "Name",
+                "en": "Name",
+                "cn": "名称"
+            },
+            "menu_list_desc_title": {
+                "desc": "Description",
+                "en": "Description",
+                "cn": "介绍"
+            },
+            "menu_list_version_title": {
+                "desc": "Version",
+                "en": "Version",
+                "cn": "版本"
+            },
+            "menu_list_state_title": {
+                "desc": "State",
+                "en": "State",
+                "cn": "状态"
+            },
+            "menu_list_install_text": {
+                "desc": "Installed",
+                "en": "Installed",
+                "cn": "已安装"
+            }
+        },
+        "hikit.py": {
+            "menu_list_setup_source_same": {
+                "desc": "It's the same source!",
+                "en": "It's the same source!",
+                "cn": "这是同一个源!"
+            },
+            "menu_list_setup_start": {
+                "desc": "Try to setup list: ",
+                "en": "Try to setup list: ",
+                "cn": "尝试配置源: "
+            },
+            "menu_list_setup_source_successed": {
+                "desc": "Source change successed!",
+                "en": "Source change successed!",
+                "cn": "成功配置源!"
+            },
+            "menu_list_no_source_warning": {
+                "desc": "Source doesn't setup!",
+                "en": "Source doesn't setup!",
+                "cn": "没有配置源!"
+            },
+            "menu_list_no_source_warning_help": {
+                "desc": "Please use `hi list --setup <source-url>` setup source at first.",
+                "en": "Please use `hi list --setup <source-url>` setup source at first.",
+                "cn": "请先使用 `hi list --setup <source-url>` 配置源。"
+            },
+            "menu_show_not_exist": {
+                "desc": " not exist!",
+                "en": " not exist!",
+                "cn": " 不存在!"
+            },
+            "menu_show_tile_name": {
+                "desc": "Commands: ",
+                "en": "Commands: ",
+                "cn": "命令: "
+            },
+            "menu_update_app_start": {
+                "desc": "Start update: ",
+                "en": "Start update: ",
+                "cn": "开始更新: "
+            },
+            "menu_update_app_end": {
+                "desc": "Finished update: ",
+                "en": "Finished update: ",
+                "cn": "结束更新: "
+            },
+            "menu_update_no_source_warning": {
+                "desc": "Source doesn't setup!",
+                "en": "Source doesn't setup!",
+                "cn": "源未配置!"
+            },
+            "menu_update_no_source_warning_help": {
+                "desc": "Please use `hi list --setup <source-url>` setup source at first.",
+                "en": "Please use `hi list --setup <source-url>` setup source at first.",
+                "cn": "请先使用 `hi list --setup <source-url>` 配置源。"
+            },
+            "menu_update_app_not_installed": {
+                "desc": " is not installed!",
+                "en": " is not installed!",
+                "cn": " 未安装!"
+            },
+            "menu_install_branch": {
+                "desc": "branch is ",
+                "en": "branch is ",
+                "cn": "分支为: "
+            },
+            "menu_install_start": {
+                "desc": " start install...",
+                "en": " start install...",
+                "cn": " 开始安装... "
+            },
+            "menu_install_end": {
+                "desc": " finished install!",
+                "en": " finished install!",
+                "cn": " 结束安装!"
+            },
+            "menu_install_not_exist": {
+                "desc": " not exist!",
+                "en": " not exist!",
+                "cn": " 不存在!"
+            },
+            "menu_install_not_exist_local": {
+                "desc": "Current dir hasn't app!",
+                "en": "Current dir hasn't app!",
+                "cn": "当前目录没有App!"
+            },
+            "menu_uninstall_not_exist": {
+                "desc": " not exist!",
+                "en": " not exist!",
+                "cn": " 不存在!"
+
+            },
+            "menu_uninstall_start": {
+                "desc": " start uninstall...",
+                "en": " start uninstall...",
+                "cn": " 开始卸载..."
+            },
+            "menu_uninstall_end": {
+                "desc": " finished uninstall!",
+                "en": " finished uninstall!",
+                "cn": " 结束卸载..."
+            },
+            "menu_create_finished": {
+                "desc": "Template already generate to ",
+                "en": "Template already generate to ",
+                "cn": "模版已经生成到 "
+            },
+            "menu_publish_error": {
+                "desc": "Current dir not a app!",
+                "en": "Current dir not a app!",
+                "cn": "当前目录不是一个app!"
+            },
+            "menu_publish_successed": {
+                "desc": "App already publish to local source, waiting for upload...",
+                "en": "App already publish to local source, waiting for upload...",
+                "cn": "App已经发布到本地源, 等待上传..."
+            },
+            "menu_publish_successed_upload": {
+                "desc": "Source upload successed!",
+                "en": "Source upload successed!",
+                "cn": "源上传成功！"
+            },
+            "menu_publish_failed": {
+                "desc": "Group not exist!",
+                "en": "Group not exist!",
+                "cn": "组不存在！"
+            },
+            "menu_alias_finished": {
+                "desc": " already added!",
+                "en": " already added!",
+                "cn": " 已添加！"
+            },
+            "menu_reset_alias_finished": {
+                "desc": "Alias already clean up!",
+                "en": "Alias already clean up!",
+                "cn": "别名已清空！"
+            },
+            "menu_lang_generate_lang_not_app": {
+                "desc": "It's not a hi tool!",
+                "en": "It's not a app!",
+                "cn": "这不是一个app!"
+            },
+            "menu_lang_generate_lang_to": {
+                "desc": "Generate: ",
+                "en": "Generate: ",
+                "cn": "生成到: "
+            },
+            "menu_lang_set_lang_to": {
+                "desc": "Language change to: ",
+                "en": "Language change to: ",
+                "cn": "语言变更为: "
+            },
+            "menu_lang_current_lang": {
+                "desc": "Current Lang is:",
+                "en": "Current Lang is: ",
+                "cn": "当前语言为: "
+            },
+            "menu_log_level_not_change": {
+                "desc": "Log level:",
+                "en": "Log level:",
+                "cn": "日志等级为: "
+            },
+            "menu_log_level_change_text": {
+                "desc": "Log level change to: ",
+                "en": "Log level change to: ",
+                "cn": "日志等级变更为: "
+            },
+            "menu_desc": {
+                "desc": "Hikit\nYou can use `hi -h` to get more help.",
+                "en": "Hikit\nYou can use `hi -h` to get more help.",
+                "cn": "Hikit\n你可以使用 `hi -h` 获得更多帮助."
+            },
+            "menu_epilog": {
+                "desc": "Have a good life ~",
+                "en": "Have a good life ~",
+                "cn": "祝你开心每一天 ~"
+            },
+            "menu_title": {
+                "desc": "Command List",
+                "en": "Command List",
+                "cn": "命令列表"
+            },
+            "menu_list_help": {
+                "desc": "List all tools",
+                "en": "List all tools",
+                "cn": "列出所有工具"
+            },
+            "menu_list_desc": {
+                "desc": "\n        Use `hi list` can list all tools.\n        Use `hi list --setup [list remote address]` can change list.\n        Use `hi update` or `hi update --list` can update list.\n        ",
+                "en": "\n        Use `hi list` can list all tools.\n        Use `hi list --setup [list remote address]` can change list.\n        Use `hi update` or `hi update --list` can update list.\n        ",
+                "cn": "\n        使用 `hi list` 可以列出所有工具\n        使用 `hi list --setup [list remote address]` 可以变更源.\n        使用 `hi update` 或 `hi update --list` 可以更新源.\n        "
+            },
+            "menu_list_setup_desc": {
+                "desc": "Setup a new list source. Only Support git.",
+                "en": "Setup a new list source. Only Support git.",
+                "cn": "安装一个新的源, 暂时只支持git."
+            },
+            "menu_search_help": {
+                "desc": "Use regular expressions to search app in list.",
+                "en": "Use regular expressions to search app in list.",
+                "cn": "使用正则表达式在源中搜索app."
+            },
+            "menu_search_desc": {
+                "desc": "\n        Use `hi search [regex string]` can list all exist tools.\n        ",
+                "en": "\n        Use `hi search [regex string]` can use regular expressions to search app in list.\n        ",
+                "cn": "\n        使用 `hi search [regex string]` 可以使用正则表达式在源中搜索app.\n        "
+            },
+            "menu_search_regex_desc": {
+                "desc": "The regex use to search apps.",
+                "en": "The regex use to search apps.",
+                "cn": "正则表达式."
+            },
+            "menu_show_help": {
+                "desc": "Show tools infomation.",
+                "en": "Show tools infomation.",
+                "cn": "显示工具的信息."
+            },
+            "menu_show_desc": {
+                "desc": "\n        Use `hi show [app name]` can show the app's infomation.\n        Use `hi show --release-note [app name]` can show the app's release-note.\n        ",
+                "en": "\n        Use `hi show [app name]` can show the app's infomation.\n        ",
+                "cn": "\n        使用 `hi show [app name]` 可以显示工具的信息.\n        "
+            },
+            "menu_show_release_note_desc": {
+                "desc": "Show app's release note.",
+                "en": "Show app's release note.",
+                "cn": "显示工具的release note"
+            },
+            "menu_show_name_desc": {
+                "desc": "App's name.",
+                "en": "App's name.",
+                "cn": "工具名"
+            },
+            "menu_update_help": {
+                "desc": "Update apps and list.",
+                "en": "Update apps and list.",
+                "cn": "更新工具和源"
+            },
+            "menu_update_desc": {
+                "desc": "\n        use,\n        hi update\n        will update list automatically, \n        and update all installed tools.\n\n        use,\n        hi update hi\n        to update hikit.\n                                           \n        use,\n        hi update [app name]\n        to update app.\n\n        use,\n        hi update --all or hi update -a,\n        Will update list, hikit and installed apps.\n        ",
+                "en": "\n        use,\n        hi update\n        will update list automatically, \n\n        use,\n        hi update hi\n        to update hikit.\n                                           \n        use,\n        hi update [app name]\n        to update app.\n\n        use,\n        hi update --all or hi update -a,\n        Will update list, hikit and installed apps.\n        ",
+                "cn": "\n        使用,\n        hi update\n        会自动更新源.\n\n        使用,\n        hi update hi\n        可以更新 hikit.\n                                           \n        使用,\n        hi update [app name]\n        来更新app.\n\n        使用,\n        hi update --all 或 hi update -a,\n        会更新所有.\n        "
+            },
+            "menu_update_list_desc": {
+                "desc": "Update all.",
+                "en": "Update all.",
+                "cn": "更新所有."
+            },
+            "menu_uninstall_name_desc": {
+                "desc": "The app's name or a local app' path. Not necessary.",
+                "en": "The app's name or a local app' path. Not necessary.",
+                "cn": "工具的名称。也可以没有。"
+            },
+            "menu_install_help": {
+                "desc": "Install app.",
+                "en": "Install app.",
+                "cn": "安装工具。"
+            },
+            "menu_install_desc": {
+                "desc": "\n        Use `hi install [app name]`, can install the app.\n        If use `hi install` directly inside the local app dir,\n        can install app from local.\n        ",
+                "en": "\n        Use `hi install [app name]`, can install the app.\n        If use `hi install` directly inside the local app dir,\n        can install app from local.\n        ",
+                "cn": "\n        使用 `hi install [app name]`, 可以安装该工具.\n        如果直接在工具源码根目录下使用 `hi install`,\n        会从源码安装，仅拷贝命令的快捷方式.\n        "
+            },
+            "menu_install_name_desc": {
+                "desc": "The app's name or a local app' path. Not necessary.",
+                "en": "The app's name or a local app' path. Not necessary.",
+                "cn": "工具的名称。也可以没有。"
+            },
+            "menu_install_all_desc": {
+                "desc": "Install all apps.",
+                "en": "Install all apps.",
+                "cn": "安装所有工具。"
+            },
+            "menu_install_branch_desc": {
+                "desc": "Install app by another branch.",
+                "en": "Install app by another branch.",
+                "cn": "从指定分支安装工具。"
+            },
+            "menu_uninstall_help": {
+                "desc": "Uninstall app.",
+                "en": "Uninstall app.",
+                "cn": "卸载工具。"
+            },
+            "menu_uninstall_desc": {
+                "desc": "\n        Use `hi uninstall [app name]`, can uninstall the app.\n        also can run in a local app' dir, the same as `install`.\n        Use `hi uninstall hikit`, can uninstall the hikit.\n        ",
+                "en": "\n        Use `hi uninstall [app name]`, can uninstall the app.\n        also can run in a local app' dir, the same as `install`.\n        Use `hi uninstall hi`, can uninstall the hikit.\n        ",
+                "cn": "\n        使用 `hi uninstall [app name]`, 可以卸载工具.\n        同样可以在工具源码根目录下执行，同 `install`.\n        使用 `hi uninstall hi`, 会卸载hikit本身.\n        "
+            },
+            "menu_create_help": {
+                "desc": "Provide template for create app and list.",
+                "en": "Provide template for create app and list.",
+                "cn": "通过模版快速创建工具或源。"
+            },
+            "menu_create_desc": {
+                "desc": "\n        Use `hi create [name]` will create a normal app template in\n        current dir.\n        Use `hi create --basic [name]` will create a python module\n        template in current dir.\n        Use `hi create --list [name]` will create a app list template\n        in current dir.\n        ",
+                "en": "\n        Use `hi create [name]` will create a normal app template in\n        current dir.\n        Use `hi create --basic [name]` will create a python module\n        template in current dir.\n        Use `hi create --list [name]` will create a app list template\n        in current dir.\n        ",
+                "cn": "\n        使用 `hi create [name]` 会创建一个普通工具\n        在当前目录.\n        使用 `hi create --basic [name]` 会创建一个python module\n        在当前目录.\n        使用 `hi create --list [name]` 会创建一个源\n        在当前目录.\n        "
+            },
+            "menu_create_name_desc": {
+                "desc": "The tool's name.",
+                "en": "The tool's name.",
+                "cn": "名称。"
+            },
+            "menu_create_basic_desc": {
+                "desc": "The python module template.",
+                "en": "The python module template.",
+                "cn": "python module模版"
+            },
+            "menu_create_list_desc": {
+                "desc": "The app list template.",
+                "en": "The app list template.",
+                "cn": "源模版"
+            },
+            "menu_create_flutter_desc": {
+                "desc": "The flutter app template.",
+                "en": "The flutter app template.",
+                "cn": "Flutter app模版"
+            },
+            "menu_create_force_desc": {
+                "desc": "Is it force create.",
+                "en": "Is it force create.",
+                "cn": "强制覆盖"
+            },
+            "menu_publish_help": {
+                "desc": "Publish app to list, will create a branch and push. (Need merge by hand.)",
+                "en": "Publish app to list, will create a branch and push. (Need merge by hand.)",
+                "cn": "发布工具到源，会自动push。可能需要手动管理。"
+            },
+            "menu_publish_desc": {
+                "desc": "\n        In the developing app's dir, use `hi publish`,\n        will publish this tool to hikit's app list,\n        and then create a new branch push to the list source,\n        need merge it to master by hand.\n\n        NOTE, if app's infomation change also need to publish again.\n        ",
+                "en": "\n        In the developing app's dir, use `hi publish`,\n        will publish this tool to hikit's app list,\n        and then create a new branch push to the list source,\n        need merge it to master by hand.\n\n        NOTE, if app's infomation change also need to publish again.\n        ",
+                "cn": "\n        在工具源码根目录使用 `hi publish`,\n        会发布该工具到当前的源中,\n        并自动上传,\n        可能需要手动管理.\n\n        注意:如果工具的信息发生了变更, 最好同步更新源.\n        "
+            },
+            "menu_publish_group_desc": {
+                "desc": "Publish app to a exist group",
+                "en": "Publish app to a exist group",
+                "cn": "发布工具到当前源"
+            },
+            "menu_alias_help": {
+                "desc": "For make some alias.",
+                "en": "For make some alias.",
+                "cn": "用于创建命令的快捷别名"
+            },
+            "menu_alias_desc": {
+                "desc": "\n        Use `hi alias [command] [alias]` can make alias for command.\n        ",
+                "en": "\n        Use `hi alias [command] [alias]` can make alias for command.\n        ",
+                "cn": "\n        使用 `hi alias [command] [alias]` 可以创建命令的快捷别名.\n        "
+            },
+            "menu_alias_command_desc": {
+                "desc": "The command.",
+                "en": "The command.",
+                "cn": "命令"
+            },
+            "menu_alias_alias_desc": {
+                "desc": "The alias.",
+                "en": "The alias.",
+                "cn": "快捷别名"
+            },
+            "menu_reset_alias_help": {
+                "desc": "Clean all alias.",
+                "en": "Clean all alias.",
+                "cn": "清空别名"
+            },
+            "menu_reset_alias_desc": {
+                "desc": "\n        Use `hi reset-alias` will clean all defined alias.\n        ",
+                "en": "\n        Use `hi reset-alias` will clean all defined alias.\n        ",
+                "cn": "\n        使用 `hi reset-alias` 会清空所有别名\n        "
+            },
+            "menu_lang_help": {
+                "desc": "For enable multi lang.",
+                "en": "For enable multi lang.",
+                "cn": "用于设置语言"
+            },
+            "menu_lang_set_desc": {
+                "desc": "Change language, default is en. cn is Chinese",
+                "en": "Change language, default is en. cn is Chinese",
+                "cn": "改变语言, 默认为en。cn为中文。"
+            },
+            "menu_lang_generate_desc": {
+                "desc": "Generate multi lang file for the project.",
+                "en": "Generate multi lang file for the project.",
+                "cn": "为该工具生成多语言文件。"
+            },
+            "menu_dev_help": {
+                "desc": "Some dev tools.",
+                "en": "Some dev tools.",
+                "cn": "一些开发工具。"
+            },
+            "menu_dev_desc": {
+                "desc": "\n        For clean cache,\n        Use `hi dev --pyclean` will clean all python cache.\n\n        For Release note,\n        Use `hi dev --major [desc]` will update the first version number.\n        Use `hi dev --feature [desc]` will update the second version number.\n        Use `hi dev --bugfix [desc]` will update the third version number.\n        ",
+                "en": "\n        For clean cache,\n        Use `hi dev --pyclean` will clean all python cache.\n\n        For Release note,\n        Use `hi dev --major [desc]` will update the first version number.\n        Use `hi dev --feature [desc]` will update the second version number.\n        Use `hi dev --bugfix [desc]` will update the third version number.\n        ",
+                "cn": "\n        用于清空python编译缓存,\n        使用 `hi dev --pyclean` 会清理目录下所有python编译缓存.\n\n        For Release note,\n        Use `hi dev --major [desc]` will update the first version number.\n        Use `hi dev --feature [desc]` will update the second version number.\n        Use `hi dev --bugfix [desc]` will update the third version number.\n        "
+            },
+            "menu_dev_pyclean_desc": {
+                "desc": "Clean all python cache.",
+                "en": "Clean all python cache."
+            },
+            "menu_dev_major_desc": {
+                "desc": "Update the first version number.",
+                "en": "Update the first version number."
+            },
+            "menu_dev_feature_desc": {
+                "desc": "Update the second version number.",
+                "en": "Update the second version number."
+            },
+            "menu_dev_bugfix_desc": {
+                "desc": "Update the third version number.",
+                "en": "Update the third version number."
+            },
+            "menu_log_help": {
+                "desc": "Log level control.",
+                "en": "Log level control.",
+                "cn": "日志等级控制"
+            },
+            "menu_log_desc": {
+                "desc": "\n        For log level control.\n        Use `hi log --debug` will change to debug level.\n        Other same as above\n        ",
+                "en": "\n        For log level control.\n        Use `hi log --debug` will change to debug level.\n        Other same as above\n        ",
+                "cn": "\n        日志等级控制。\n        使用 `hi log --debug` 会改变日志等级为debug.\n        其他类似。\n        "
+            },
+            "menu_log_critical_desc": {
+                "desc": "only show Critical log.",
+                "en": "only show Critical log.",
+                "cn": "只显示Critical."
+            },
+            "menu_log_error_desc": {
+                "desc": "only show Error/Critical log.",
+                "en": "only show Error/Critical log.",
+                "cn": "只显示Error/Critical."
+            },
+            "menu_log_warning_desc": {
+                "desc": "only show Error/Critical/Warning log.",
+                "en": "only show Error/Critical/Warning log.",
+                "cn": "只显示Error/Critical/Warning."
+            },
+            "menu_log_info_desc": {
+                "desc": "only show Error/Critical/Warning/Info log.",
+                "en": "only show Error/Critical/Warning/Info log.",
+                "cn": "只显示Error/Critical/Warning/Info."
+            },
+            "menu_log_debug_desc": {
+                "desc": "only show Error/Critical/Warning/Info/Debug log.",
+                "en": "only show Error/Critical/Warning/Info/Debug log.",
+                "cn": "只显示Error/Critical/Warning/Info/Debug."
+            },
+            "menu_log_notset_desc": {
+                "desc": "Show all log.",
+                "en": "Show all log.",
+                "cn": "显示所有日志"
+            }
+        }
+    }
+}

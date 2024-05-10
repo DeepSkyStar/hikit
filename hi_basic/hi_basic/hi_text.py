@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-12 20:37:40
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-11 00:52:13
+LastEditTime: 2024-05-11 01:43:13
 FilePath: /hikit/hi_basic/hi_basic/hi_text.py
 Description: 
 

@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-05-10 20:40:23
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-11 01:20:58
+LastEditTime: 2024-05-11 02:19:15
 FilePath: /hikit/hi_basic/hi_basic/hi_multilang.py
 Description: 
 
@@ -77,15 +77,12 @@ class HiMultiLang(object):
 
     def get_text(self, filepath: str, key: str) -> str:
         """If not exist key, will return key. if not exist lang, will return en."""
-
         lang = "en"
         if HiConfig()[HiMultiLang.LANG_KEY]:
             lang = HiConfig()[HiMultiLang.LANG_KEY]
 
-        if lang not in self.support_list:
-            return key
-
-        text_dict = self.get_dict(filepath=filepath)
+        relpath = os.path.relpath(filepath, self.start_path)
+        text_dict = self.get_dict(filepath=relpath)
         if key not in text_dict:
             return key
 
@@ -96,12 +93,12 @@ class HiMultiLang(object):
             if isinstance(text_dict[key][lang], str):
                 return text_dict[key][lang]
             else:
-                del self._langfile.writer["text"][filepath][key][lang]
+                del self._langfile.writer["text"][relpath][key][lang]
         elif "desc" in text_dict[key]:
             if isinstance(text_dict[key]["desc"], str):
                 return text_dict[key]["desc"]
             else:
-                self._langfile.writer["text"][filepath][key]["desc"] = key
+                self._langfile.writer["text"][relpath][key]["desc"] = key
         return key
     
     def update(self, lang_dict: dict) -> None:
