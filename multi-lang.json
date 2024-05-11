@@ -63,9 +63,9 @@
                 "cn": " 不存在!"
             },
             "menu_show_tile_name": {
-                "desc": "Commands: ",
-                "en": "Commands: ",
-                "cn": "命令: "
+                "desc": "Name: ",
+                "en": "Name: ",
+                "cn": "名称: "
             },
             "menu_update_app_start": {
                 "desc": "Start update: ",
@@ -121,7 +121,6 @@
                 "desc": " not exist!",
                 "en": " not exist!",
                 "cn": " 不存在!"
-
             },
             "menu_uninstall_start": {
                 "desc": " start uninstall...",
@@ -234,7 +233,7 @@
                 "cn": "使用正则表达式在源中搜索app."
             },
             "menu_search_desc": {
-                "desc": "\n        Use `hi search [regex string]` can list all exist tools.\n        ",
+                "desc": "\n        Use `hi search [regex string]` can use regular expressions to search app in list.\n        ",
                 "en": "\n        Use `hi search [regex string]` can use regular expressions to search app in list.\n        ",
                 "cn": "\n        使用 `hi search [regex string]` 可以使用正则表达式在源中搜索app.\n        "
             },
@@ -249,7 +248,7 @@
                 "cn": "显示工具的信息."
             },
             "menu_show_desc": {
-                "desc": "\n        Use `hi show [app name]` can show the app's infomation.\n        Use `hi show --release-note [app name]` can show the app's release-note.\n        ",
+                "desc": "\n        Use `hi show [app name]` can show the app's infomation.\n        ",
                 "en": "\n        Use `hi show [app name]` can show the app's infomation.\n        ",
                 "cn": "\n        使用 `hi show [app name]` 可以显示工具的信息.\n        "
             },
@@ -269,7 +268,7 @@
                 "cn": "更新工具和源"
             },
             "menu_update_desc": {
-                "desc": "\n        use,\n        hi update\n        will update list automatically, \n        and update all installed tools.\n\n        use,\n        hi update hi\n        to update hikit.\n                                           \n        use,\n        hi update [app name]\n        to update app.\n\n        use,\n        hi update --all or hi update -a,\n        Will update list, hikit and installed apps.\n        ",
+                "desc": "\n        use,\n        hi update\n        will update list automatically, install all default tools,\n        and update all installed tools.\n\n        use,\n        hi update hi\n        to update hikit.\n                                           \n        use,\n        hi update [app name]\n        to update app.\n\n        use,\n        hi update --all or hi update -a,\n        Will update list, hikit and installed apps.\n        ",
                 "en": "\n        use,\n        hi update\n        will update list automatically, \n\n        use,\n        hi update hi\n        to update hikit.\n                                           \n        use,\n        hi update [app name]\n        to update app.\n\n        use,\n        hi update --all or hi update -a,\n        Will update list, hikit and installed apps.\n        ",
                 "cn": "\n        使用,\n        hi update\n        会自动更新源.\n\n        使用,\n        hi update hi\n        可以更新 hikit.\n                                           \n        使用,\n        hi update [app name]\n        来更新app.\n\n        使用,\n        hi update --all 或 hi update -a,\n        会更新所有.\n        "
             },
@@ -478,6 +477,27 @@
                 "desc": "Show all log.",
                 "en": "Show all log.",
                 "cn": "显示所有日志"
+            },
+            "menu_show_tile_version": {
+                "desc": "Version: ",
+                "en": "版本号: "
+            },
+            "menu_show_tile_owner": {
+                "desc": "Owner: ",
+                "en": "维护者: "
+            },
+            "menu_show_tile_desc": {
+                "desc": "Desc: ",
+                "en": "介绍: "
+            },
+            "menu_show_tile_command": {
+                "desc": "Commands: ",
+                "en": "命令: "
+            },
+            "menu_show_tile_contact": {
+                "desc": "Contact: ",
+                "en": "Contact: ",
+                "cn": "联系方式: "
             }
         }
     }

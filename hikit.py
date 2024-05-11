@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-12 20:37:40
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-11 17:37:03
+LastEditTime: 2024-05-11 18:00:39
 FilePath: /hikit/hikit.py
 Description: 
 
@@ -75,11 +75,12 @@ def __show(args):
         print(name + HiText("menu_show_not_exist", " not exist!"))
         return None
 
-    print(HiText("menu_show_tile_name", "Name: ") + app.name)
-    print(HiText("menu_show_tile_name", "Version: ") + app.version)
-    print(HiText("menu_show_tile_name", "Owner: ") + app.owner)
-    print(HiText("menu_show_tile_name", "Desc: ") + app.desc)
-    print(HiText("menu_show_tile_name", "Commands: ") + str(app.commands))
+    print(HiText("menu_show_tile_name", "Name: ") + str(app.name))
+    print(HiText("menu_show_tile_version", "Version: ") + str(app.version))
+    print(HiText("menu_show_tile_owner", "Owner: ") + str(app.owner))
+    print(HiText("menu_show_tile_contact", "Contact: ") + str(app.contact))
+    print(HiText("menu_show_tile_desc", "Desc: ") + str(app.desc))
+    print(HiText("menu_show_tile_command", "Commands: ") + str(app.commands))
     pass
 
 

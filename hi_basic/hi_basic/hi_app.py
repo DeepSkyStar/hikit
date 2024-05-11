@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-04 18:25:19
+LastEditTime: 2024-05-11 17:58:21
 FilePath: /hikit/hi_basic/hi_basic/hi_app.py
 Description: 
 
@@ -32,6 +32,7 @@ class HiAppInfoKey(object):
 
     NAME = "name"
     OWNER = "owner"
+    CONTACT = "contact"
     DESC = "desc"
     VERSION = "version"
     TYPE = "type"
@@ -149,22 +150,27 @@ class HiAppInfo(HiConfig):
     @property
     def name(self) -> str:
         """Name for app."""
-        return self.items[HiAppInfoKey.NAME]
+        return self[HiAppInfoKey.NAME]
+
+    @property
+    def contact(self) ->str:
+        """Contact info."""
+        return self[HiAppInfoKey.CONTACT]
 
     @property
     def desc(self) -> str:
         """Introduction for app."""
-        return self.items[HiAppInfoKey.DESC]
+        return self[HiAppInfoKey.DESC]
 
     @property
     def owner(self) -> str:
         """Owner is the maintaner."""
-        return self.items[HiAppInfoKey.OWNER]
+        return self[HiAppInfoKey.OWNER]
 
     @property
     def version(self) -> str:
         """Version for app update."""
-        return self.items[HiAppInfoKey.VERSION]
+        return self[HiAppInfoKey.VERSION]
 
     @property
     def app_path(self) -> str:
@@ -174,27 +180,27 @@ class HiAppInfo(HiConfig):
     @property
     def remote(self) -> str:
         """Remote address for app update, only support Git."""
-        return self.items[HiAppInfoKey.REMOTE]
+        return self[HiAppInfoKey.REMOTE]
 
     @property
     def default_branch(self) -> str:
         """If is empty, will use default."""
-        return self.items[HiAppInfoKey.DEFAULT_BRANCH]
+        return self[HiAppInfoKey.DEFAULT_BRANCH]
 
     @property
     def type(self) -> HiAppType:
         """Use to define app type."""
-        return self.items[HiAppInfoKey.TYPE]
+        return self[HiAppInfoKey.TYPE]
 
     @property
     def commands(self) -> list:
         """For define multiple commands, must be legal written. Return type is list[str]."""
-        return self.items[HiAppInfoKey.COMMANDS]
+        return self[HiAppInfoKey.COMMANDS]
 
     @property
     def dependencies(self) -> list:
         """If dependencies not in the app list, will not work. Return type is list[str]."""
-        return self.items[HiAppInfoKey.DEPENDENCIES]
+        return self[HiAppInfoKey.DEPENDENCIES]
 
     @property
     def resources(self) -> list:

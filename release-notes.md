@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.2.2
+1. Fix info display bugs, add contact to template.
+2. Fix HiConfig save utf-8 bug.
+
 ## v1.2.1
 Add owner info show.
 

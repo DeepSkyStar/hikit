@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-04 18:25:32
+LastEditTime: 2024-05-11 17:52:26
 FilePath: /hikit/hi_basic/hi_basic/hi_config.py
 Description: 
 
@@ -242,7 +242,7 @@ class HiConfig(object):
                 HiFile.ensure_dirs(os.path.split(self.__path)[0])
                 self._init_config()
         else:
-            with open(self.__path, "r") as jsonfile:
+            with open(self.__path, "r", encoding="utf-8") as jsonfile:
                 try:
                     self.__items = json.load(jsonfile)
                     self.__filestamp.update()
@@ -252,8 +252,8 @@ class HiConfig(object):
         pass
 
     def _save_config(self):
-        with open(self.__path, "w") as jsonfile:
-            json.dump(self.__items, jsonfile, indent=4)
+        with open(self.__path, "w", encoding="utf-8") as jsonfile:
+            json.dump(self.__items, jsonfile, indent=4, ensure_ascii=False)
         self.__filestamp.update()
 
     def __getitem__(self, key):
