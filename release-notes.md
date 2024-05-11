@@ -1,5 +1,8 @@
 # Release Note
 
+## v1.2.1
+Add owner info show.
+
 ## v1.2.0
 Add multi lang feature, now can change language and generate multi lang for your tools.
 
