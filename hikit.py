@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-12 20:37:40
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-11 01:58:06
+LastEditTime: 2024-05-11 17:37:03
 FilePath: /hikit/hikit.py
 Description: 
 
@@ -77,6 +77,7 @@ def __show(args):
 
     print(HiText("menu_show_tile_name", "Name: ") + app.name)
     print(HiText("menu_show_tile_name", "Version: ") + app.version)
+    print(HiText("menu_show_tile_name", "Owner: ") + app.owner)
     print(HiText("menu_show_tile_name", "Desc: ") + app.desc)
     print(HiText("menu_show_tile_name", "Commands: ") + str(app.commands))
     pass
