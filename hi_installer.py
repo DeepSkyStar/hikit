@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-09 15:42:35
+LastEditTime: 2024-05-14 17:35:37
 FilePath: /hikit/hi_installer.py
 Description: 
 
@@ -87,7 +87,7 @@ class HiInstaller(object):
             self._build_commands(installed_app.app_path)
             self._update_requirements(installed_app.app_path)
         elif installed_app.type == HiAppType.BASIC:
-            self._install_pip_module()
+            install_pip_module(installed_app.app_path)
         else:
             raise ValueError("App Type " + str(self._info.type) + " not support yet.")
 
@@ -142,10 +142,6 @@ class HiInstaller(object):
         self._repo.transmitter.switch(branch)
         pass
 
-    def _install_pip_module(self):
-        install_pip_module(HiAppInfo.from_installed(self._info.name).app_path)
-        pass
-
     def _build_commands(self, path: str) -> None:
         bin_template = """#!/bin/sh
 # -*- coding: utf-8 -*-
@@ -196,7 +192,7 @@ class HiLocalInstaller(HiInstaller):
             self._download_resouces(self._info.resources)
         elif self._info.type == HiAppType.BASIC:
             self._update_requirements(self._info.app_path)
-            self._install_pip_module(self._info.app_path)
+            install_pip_module(self._info.app_path)
         else:
             raise ValueError("App Type " + str(self._info.type) + " not support yet.")
         pass

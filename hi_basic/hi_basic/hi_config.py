@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-11 17:52:26
+LastEditTime: 2024-05-14 17:30:28
 FilePath: /hikit/hi_basic/hi_basic/hi_config.py
 Description: 
 
@@ -31,63 +31,63 @@ from .hi_file import *
 
 class _HiConfigWriter(object):
     def __init__(self, config: "HiConfig", parent: "_HiConfigWriter" = None, key=None, is_autofill=False):
-        self.__config = config
-        self.__parent = parent
-        self.__is_autofill = is_autofill
-        self.__key = key
+        self._config = config
+        self._parent = parent
+        self._is_autofill = is_autofill
+        self._key = key
         pass
 
     @property
-    def key(self): return self.__key
+    def key(self): return self._key
 
     @property
     def value(self):
-        if self.__parent is None:
-            return self.__config.items
-        return self.__parent.value[self.__key]
+        if self._parent is None:
+            return self._config.items
+        return self._parent.value[self._key]
 
     @property
     def autofill(self) -> "_HiConfigWriter":
         return _HiConfigWriter(
-            self.__config,
-            parent=self.__parent,
-            key=self.__key,
+            self._config,
+            parent=self._parent,
+            key=self._key,
             is_autofill=True)
 
     @property
     def a(self) -> "_HiConfigWriter": return self.autofill
 
-    def __autofill_check(self, key):
-        if not self.__is_autofill:
+    def _autofill_check(self, key):
+        if not self._is_autofill:
             return None
 
-        if self.__parent is None:
+        if self._parent is None:
             if key not in self.value:
                 self.value[key] = {}
-                self.__config._save_config()
+                self._config._save_config()
             return None
 
         if isinstance(self.value, dict) and key not in self.value:
             self.value[key] = {}
-            self.__config._save_config()
+            self._config._save_config()
         pass
 
     def __getitem__(self, key):
-        self.__autofill_check(key)
+        self._autofill_check(key)
         return _HiConfigWriter(
-            config=self.__config,
+            config=self._config,
             parent=self,
             key=key,
-            is_autofill=self.__is_autofill)
+            is_autofill=self._is_autofill)
 
     def __setitem__(self, key, value):
         self.value[key] = value
-        self.__config._save_config()
+        self._config._save_config()
         pass
 
     def __delitem__(self, key):
         del self.value[key]
-        self.__config._save_config()
+        self._config._save_config()
         pass
     pass
 
@@ -112,7 +112,7 @@ class HiConfig(object):
 
     HIKIT_CONFIG_PATH = os.path.join(HIKIT_PATH, HIKIT_CONFIG_NAME)
     USER_CONFIG_PATH = os.path.join(HIKIT_USERPATH, HIKIT_CONFIG_NAME)
-    __configs = {}
+    _configs = {}
 
     def __new__(cls, *args, **kwargs):
         """Make sure the same file will be the same instance."""
@@ -125,11 +125,11 @@ class HiConfig(object):
             path = args[0]
 
         # Use weakref to save object.
-        if path not in cls.__configs or cls.__configs[path]() is None:
+        if path not in cls._configs or cls._configs[path]() is None:
             config = super().__new__(cls)
-            cls.__configs[path] = weakref.ref(config)
+            cls._configs[path] = weakref.ref(config)
         else:
-            config = cls.__configs[path]()
+            config = cls._configs[path]()
 
         return config
 
@@ -141,12 +141,12 @@ class HiConfig(object):
             editable (bool, optional): As the name. Defaults to True.
         """
         super().__init__()
-        self.__path = os.path.abspath(path)
-        self.__auto_create = auto_create
-        self.__editable = editable
-        if not hasattr(self, "_HiConfig__items"):
-            self.__items = {}
-            self.__filestamp = HiFileStamp(self.__path)
+        self._path = os.path.abspath(path)
+        self._auto_create = auto_create
+        self._editable = editable
+        if not hasattr(self, "_HiConfig_items"):
+            self._items = {}
+            self._filestamp = HiFileStamp(self._path)
             self._load_config()
         pass
 
@@ -182,19 +182,19 @@ class HiConfig(object):
     @property
     def path(self) -> str:
         """Json file path."""
-        return self.__path
+        return self._path
 
     @property
     def items(self) -> dict:
         """Items in json will automatic update when file change."""
-        if self.__filestamp.is_changed:
+        if self._filestamp.is_changed:
             self._load_config()
-        return self.__items
+        return self._items
 
     @items.setter
     def items(self, items: dict):
         """Update items will save into the file immediatly."""
-        self.__items.update(items)
+        self._items.update(items)
         self._save_config()
         pass
 
@@ -219,7 +219,7 @@ class HiConfig(object):
         Returns:
             _HiConfigWriter: the writer
         """
-        return _HiConfigWriter(self) if self.__editable else None
+        return _HiConfigWriter(self) if self._editable else None
 
     @property
     def w(self) -> _HiConfigWriter:
@@ -231,37 +231,37 @@ class HiConfig(object):
         self._init_config()
 
     def _init_config(self):
-        self.__items = {}
+        self._items = {}
         self._save_config()
-        HiLog.debug("Reset config " + self.__path)
+        HiLog.debug("Reset config " + self._path)
         pass
 
     def _load_config(self):
-        if not os.path.exists(self.__path):
-            if self.__auto_create:
-                HiFile.ensure_dirs(os.path.split(self.__path)[0])
+        if not os.path.exists(self._path):
+            if self._auto_create:
+                HiFile.ensure_dirs(os.path.split(self._path)[0])
                 self._init_config()
         else:
-            with open(self.__path, "r", encoding="utf-8") as jsonfile:
+            with open(self._path, "r", encoding="utf-8") as jsonfile:
                 try:
-                    self.__items = json.load(jsonfile)
-                    self.__filestamp.update()
-                    HiLog.debug(f"Load config {self.__path}")
+                    self._items = json.load(jsonfile)
+                    self._filestamp.update()
+                    HiLog.debug(f"Load config {self._path}")
                 except ValueError:
-                    HiLog.warning(f"Config {self.__path} broken...")
+                    HiLog.warning(f"Config {self._path} broken...")
         pass
 
     def _save_config(self):
-        with open(self.__path, "w", encoding="utf-8") as jsonfile:
-            json.dump(self.__items, jsonfile, indent=4, ensure_ascii=False)
-        self.__filestamp.update()
+        with open(self._path, "w", encoding="utf-8") as jsonfile:
+            json.dump(self._items, jsonfile, indent=4, ensure_ascii=False)
+        self._filestamp.update()
 
     def __getitem__(self, key):
         """As same as dict."""
-        if self.__filestamp.is_changed:
+        if self._filestamp.is_changed:
             self._load_config()
-        if key in self.__items:
-            value = self.__items[key]
+        if key in self._items:
+            value = self._items[key]
             return value
         return None
 
@@ -277,9 +277,12 @@ class HiConfig(object):
 
     def __len__(self):
         """As same as dict."""
-        return len(self.__items)
+        return len(self._items)
 
     pass
+
+
+
 
 
 if __name__ == "__main__":
