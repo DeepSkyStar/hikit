@@ -1,5 +1,8 @@
 # Release Note
 
+## v1.2.3
+1. Fix hikit will still download from the https, now will download from where you clone the hikit.
+
 ## v1.2.2
 1. Fix info display bugs, add contact to template.
 2. Fix HiConfig save utf-8 bug.
