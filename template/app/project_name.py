@@ -8,6 +8,11 @@ import textwrap
 
 
 def __info(args):
+    # Just for tell you how to fetch argument.
+    # sample = args["sample"]
+    # sample2 = args["sample2"][0] if len(args["sample2"]) > 0 else None
+    # sample3 = args["sample3"]
+
     curpath = os.path.dirname(os.path.abspath(__file__))
     appinfo = HiAppInfo(curpath)
     print(appinfo.name + " " + appinfo.version + " by " + appinfo.owner if appinfo.owner else "Unknown")
@@ -38,6 +43,25 @@ def __setup_parser():
         name="info",
         help=HiText("menu_info_help", "View tool's version and owner.")
         )
+
+    # parser_info.add_argument(
+    #     "-s",
+    #     "--sample",
+    #     help=HiText("menu_info_sample", "Just for tell you how to add options to check."),
+    #     action="store_true"
+    # )
+
+    # parser_info.add_argument(
+    #     "--sample2",
+    #     help=HiText("menu_info_sample2", "Just for tell you how to add options to store."),
+    #     nargs=1,
+    #     action="store"
+    # )
+
+    # parser_info.add_argument(
+    #     "sample3",
+    #     help=HiText("menu_info_sample3", "For add a position argument.")
+    # )
 
     parser_info.set_defaults(func=__info)
 
