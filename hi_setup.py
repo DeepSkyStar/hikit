@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-04 18:22:36
+LastEditTime: 2024-05-14 17:53:21
 FilePath: /hikit/hi_setup.py
 Description: 
 
@@ -31,7 +31,7 @@ if __name__ == "__main__":
     # Auto setup the hikit remote.
     install_basic()
     git = HiGit.from_local()
-    HiConfig.hikit_config().writer[HiPath.HIKIT_SOURCE_KEY] = git.remote
+    HiPath.setup_hikitsource(git.remote)
     curdir = os.path.dirname(os.path.abspath(__file__))
     HiInstaller(HiAppInfo.from_local(path=curdir)).install()
     HiSys.setup_path()

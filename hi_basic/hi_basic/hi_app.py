@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-11 17:58:21
+LastEditTime: 2024-05-14 17:58:53
 FilePath: /hikit/hi_basic/hi_basic/hi_app.py
 Description: 
 
@@ -180,6 +180,8 @@ class HiAppInfo(HiConfig):
     @property
     def remote(self) -> str:
         """Remote address for app update, only support Git."""
+        if self.name == "hikit":
+            return HiPath.hikitsource()
         return self[HiAppInfoKey.REMOTE]
 
     @property
