@@ -161,6 +161,16 @@ stamp.update()
 `HiFile.ensure_dirs()`可以确保某个路径存在，不存在则自动创建整个路径。
 `HiFile.find_first()`会返回找到的第一个文件。
 
+## 如何维护
+Hikit本身比较特殊，一旦出现问题将会导致本地所有hikit工具链失效。
+所以如果希望对Hikit进行开发维护，首先要理解Hikit本身的构造。
+
+对Hikit进行修改时，根据不同情况进行特殊部分安装:
+1. 修改了hi_basic基础库内容: 使用 `python3 hi_basic_setup.py` 进行修改后的基础库更新。
+2. 修改了hikit其他部分内容，使用 `python3 hi_setup.py` 进行修改后的工具安装。
+3. 当整个功能完成开发后，提交 feature/feature_name 分支，用 hi install -b feature/feature_name，
+进行完整的集成测试后，再提交pr合并到develop分支，再由管理者测试后，合入到main分支。
+
 ## 如何贡献
 
 ### 分支和提交规范

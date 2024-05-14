@@ -166,6 +166,16 @@ You can check if the file has been updated during that period of time.
 
 `HiFile.ensure_dirs()` can ensure that a certain path exists, and if not, it will automatically create the entire path. `HiFile.find_first()` will return the first found file.
 
+## Maintenance Instructions
+
+Hikit is quite unique; if it encounters any issues, it could lead to the invalidation of all local Hikit toolchains.
+Therefore, if you wish to develop and maintain Hikit, it is essential to first understand its structure.
+When making modifications to Hikit, proceed with special installations for different scenarios:
+
+1. If you have modified the content of the hi_basic library: Use the command `python3 hi_basic_setup.py` to update the modified basic library.
+2. If you have modified other parts of Hikit, use the command `python3 hi_setup.py` to install the modified tool.
+3. Once the entire feature is fully developed, commit to the branch named feature/feature_name, and then use `hi install -b feature/feature_name` to conduct a complete integration test. After the test, submit a pull request (PR) to merge into the develop branch. Following approval and testing by the manager, it can be merged into the main branch.
+
 ## How to Contribute
 
 ### Branch and Commit Msg
