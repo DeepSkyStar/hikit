@@ -480,24 +480,33 @@
             },
             "menu_show_tile_version": {
                 "desc": "Version: ",
-                "en": "版本号: "
+                "en": "Version: ",
+                "cn": "版本号: "
             },
             "menu_show_tile_owner": {
                 "desc": "Owner: ",
-                "en": "维护者: "
+                "en": "Owner: ",
+                "cn": "维护者: "
             },
             "menu_show_tile_desc": {
                 "desc": "Desc: ",
-                "en": "介绍: "
+                "en": "Desc: ",
+                "cn": "介绍: "
             },
             "menu_show_tile_command": {
                 "desc": "Commands: ",
-                "en": "命令: "
+                "en": "Commands: ",
+                "cn": "命令: "
             },
             "menu_show_tile_contact": {
                 "desc": "Contact: ",
                 "en": "Contact: ",
                 "cn": "联系方式: "
+            },
+            "menu_show_tile_remote": {
+                "desc": "Remote: ",
+                "en": "Remote: ",
+                "cn": "仓库地址: "
             }
         }
     }

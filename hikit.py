@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-12 20:37:40
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-14 17:47:59
+LastEditTime: 2024-05-14 18:16:39
 FilePath: /hikit/hikit.py
 Description: 
 
@@ -68,17 +68,18 @@ def __show(args):
         if app is None:
             print(name + HiText("menu_show_not_exist", " not exist!"))
             return None
-
-    # load from local
-    app = HiAppInfo.from_local()
-    if app is None:
-        print(name + HiText("menu_show_not_exist", " not exist!"))
-        return None
+    else:
+        # load from local
+        app = HiAppInfo.from_local()
+        if app is None:
+            print(name + HiText("menu_show_not_exist", " not exist!"))
+            return None
 
     print(HiText("menu_show_tile_name", "Name: ") + str(app.name))
     print(HiText("menu_show_tile_version", "Version: ") + str(app.version))
     print(HiText("menu_show_tile_owner", "Owner: ") + str(app.owner))
     print(HiText("menu_show_tile_contact", "Contact: ") + str(app.contact))
+    print(HiText("menu_show_tile_remote", "Remote: ") + str(app.remote))
     print(HiText("menu_show_tile_desc", "Desc: ") + str(app.desc))
     print(HiText("menu_show_tile_command", "Commands: ") + str(app.commands))
     pass
@@ -362,15 +363,17 @@ def __setup_parser():
         """))
         )
 
-    parser_show.add_argument(
-        "--release-note",
-        help=HiText("menu_show_release_note_desc", "Show app's release note."),
-        action="store_true"
-    )
+    # parser_show.add_argument(
+    #     "--release-note",
+    #     help=HiText("menu_show_release_note_desc", "Show app's release note."),
+    #     action="store_true"
+    # )
 
     parser_show.add_argument(
         "name",
-        help=HiText("menu_show_name_desc", "App's name.")
+        help=HiText("menu_show_name_desc", "App's name."),
+        nargs="?",
+        default=""
     )
 
     parser_show.set_defaults(func=__show)

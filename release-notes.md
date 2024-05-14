@@ -1,5 +1,8 @@
 # Release Note
 
+## v1.2.4
+1. Fix show bugs.
+
 ## v1.2.3
 1. Fix hikit will still download from the https, now will download from where you clone the hikit.
 
