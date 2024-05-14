@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-14 17:35:37
+LastEditTime: 2024-05-14 18:29:58
 FilePath: /hikit/hi_installer.py
 Description: 
 
@@ -145,7 +145,7 @@ class HiInstaller(object):
     def _build_commands(self, path: str) -> None:
         bin_template = """#!/bin/sh
 # -*- coding: utf-8 -*-
-<BIN_PATH> $@
+<BIN_PATH> "$@"
 """
         for command in self._info.commands:
             source_path = os.path.join(path, command)
