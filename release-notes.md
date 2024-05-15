@@ -1,7 +1,10 @@
 # Release Note
 
+## v1.2.7
+1. Fix install to system, now install to user.
+
 ## v1.2.6
-1. Fix update all bug.
+1. Fix update --all bug.
 
 ## v1.2.5
 1. Fix basic module no denpendency bugs.
