@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-14 17:58:53
+LastEditTime: 2024-05-15 18:49:19
 FilePath: /hikit/hi_basic/hi_basic/hi_app.py
 Description: 
 
@@ -197,18 +197,24 @@ class HiAppInfo(HiConfig):
     @property
     def commands(self) -> list:
         """For define multiple commands, must be legal written. Return type is list[str]."""
+        if self[HiAppInfoKey.COMMANDS] is None:
+            return []
         return self[HiAppInfoKey.COMMANDS]
 
     @property
     def dependencies(self) -> list:
         """If dependencies not in the app list, will not work. Return type is list[str]."""
+        if self[HiAppInfoKey.DEPENDENCIES] is None:
+            return []
         return self[HiAppInfoKey.DEPENDENCIES]
 
     @property
     def resources(self) -> list:
         """Use to fetch remote data. Return type is list[HiResourceInfo]."""
         resources = []
-        for info in self.items[HiAppInfoKey.RESOURCES]:
+        if self[HiAppInfoKey.RESOURCES] is None:
+            return []
+        for info in self[HiAppInfoKey.RESOURCES]:
             resources.append(HiResourceInfo(info))
         return resources
 
