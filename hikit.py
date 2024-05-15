@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-12 20:37:40
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-14 18:16:39
+LastEditTime: 2024-05-15 20:53:19
 FilePath: /hikit/hikit.py
 Description: 
 
@@ -93,7 +93,7 @@ def __update(args):
     # Update hikit.
     if name and name == "hi" or is_all:
         HiLog.info(HiText("menu_update_app_start", "Start update: ") + "hikit")
-        HiInstaller(HiAppInfo.from_installed(name)).install()
+        HiInstaller(HiAppInfo.from_installed("hi")).install()
         HiLog.info(HiText("menu_update_app_end", "Finished update: ") + "hikit")
         if not is_all:
             return None
