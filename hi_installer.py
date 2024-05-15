@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-14 18:29:58
+LastEditTime: 2024-05-15 20:59:01
 FilePath: /hikit/hi_installer.py
 Description: 
 
@@ -175,7 +175,7 @@ class HiInstaller(object):
     def _update_requirements(self, path: str) -> None:
         requirements_file = os.path.join(path, "requirements.txt")
         if os.path.exists(requirements_file):
-            os.system(HiSys.to_bash("python3 -m pip install -r " + requirements_file))
+            os.system(HiSys.to_bash("python3 -m pip install --user -r " + requirements_file))
         pass
 
     pass

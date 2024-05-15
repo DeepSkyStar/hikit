@@ -4,7 +4,7 @@
  # @Author: Cosmade
  # @Date: 2024-04-09 15:55:33
  # @LastEditors: deepskystar deepskystar@outlook.com
- # @LastEditTime: 2024-05-04 18:24:38
+ # @LastEditTime: 2024-05-15 20:59:30
  # @FilePath: /hikit/setup
  # @Description: 
  # 
@@ -23,7 +23,7 @@
 ### 
 
 rm -r -f ~/.hikit
-python3 -m pip install -r requirements.txt
+python3 -m pip install --user -r requirements.txt
 python3 hi_basic_setup.py
 python3 hi_setup.py
 

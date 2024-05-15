@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-04 18:23:14
+LastEditTime: 2024-05-15 20:59:09
 FilePath: /hikit/hi_basic_setup.py
 Description: 
 
@@ -40,7 +40,7 @@ def install_pip_module(path: str):
     distlist = os.listdir(distpath)
     os.chdir(distpath)
     print("Starting install " + distlist[0] + "...")
-    os.system("python3 -m pip install " + distlist[0])
+    os.system("python3 -m pip install --user " + distlist[0])
     os.chdir(lastpath)
     pass
 
