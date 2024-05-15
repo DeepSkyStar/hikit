@@ -1,5 +1,8 @@
 # Release Note
 
+## v1.2.5
+1. Fix basic module no denpendency bugs.
+
 ## v1.2.4
 1. Fix show bugs.
 

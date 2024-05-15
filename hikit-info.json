@@ -3,7 +3,7 @@
     "owner": "Cosmade",
     "contact": "deepskystar@outlook.com",
     "desc": "Tool for manager python tools.",
-    "version": "1.2.4",
+    "version": "1.2.5",
     "type": "app",
     "remote": "https://github.com/DeepSkyStar/hikit.git",
     "is_default" : true,
