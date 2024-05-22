@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-04 18:26:05
+LastEditTime: 2024-05-22 21:03:15
 FilePath: /hikit/hi_basic/hi_basic/hi_log.py
 Description: 
 
@@ -157,7 +157,7 @@ class HiLogFile(object):
             return logging.INFO
 
         result = logging.INFO
-        with open(config_path, "r") as jsonfile:
+        with open(config_path, "r", encoding="utf-8") as jsonfile:
             try:
                 items = json.load(jsonfile)
                 if HIKIT_LOG_LEVEL in items:

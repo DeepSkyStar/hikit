@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-05-10 20:40:23
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-11 02:19:15
+LastEditTime: 2024-05-22 21:03:18
 FilePath: /hikit/hi_basic/hi_basic/hi_multilang.py
 Description: 
 
@@ -172,7 +172,7 @@ class HiMultiLang(object):
 
     @staticmethod
     def _analysis_file(filepath: str = None) -> dict[str, str]:
-        with open(filepath, "r") as file:
+        with open(filepath, "r", encoding="utf-8") as file:
             content = file.read()
 
         tree = ast.parse(content)

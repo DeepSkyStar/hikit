@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-22 20:54:10
+LastEditTime: 2024-05-22 21:03:30
 FilePath: /hikit/hi_basic/hi_basic/hi_template.py
 Description: 
 
@@ -53,6 +53,9 @@ class HiTemplate(object):
         self._template_dir = template_dir
         self._template_root = []
         self._template_files = {}
+        self._ignore_files = (
+            ".DS_Store"
+        )
         self._load_template(template_dir)
         pass
 
@@ -85,6 +88,8 @@ class HiTemplate(object):
                     os.listdir(subpath),
                     subpathfiles)
             else:
+                if tempfile in self._ignore_files:
+                    continue
                 HiLog.debug("read template file:" + subpath)
                 with open(subpath, "r", encoding="utf-8") as tempfile:
                     content = tempfile.read()
@@ -115,7 +120,7 @@ class HiTemplate(object):
             afile = self._replace_file_name(afile)
             filepath = os.path.join(path, afile)
             if type(contents[afile]) == str:
-                with open(filepath, "w") as deployfile:
+                with open(filepath, "w", encoding="utf-8") as deployfile:
                     deployfile.write(contents[afile])
                 if afile == self._project_name:
                     os.chmod(filepath, 1023)

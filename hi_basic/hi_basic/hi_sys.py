@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-04 18:27:07
+LastEditTime: 2024-05-22 21:03:21
 FilePath: /hikit/hi_basic/hi_basic/hi_sys.py
 Description: 
 
@@ -132,13 +132,13 @@ class _HiSysMacOS(_HiSys):
                 HiLog.debug(profilepath + " NOT Found.")
                 return None
         profilecontent = ""
-        with open(profilepath, "r") as pathfile:
+        with open(profilepath, "r", encoding="utf-8") as pathfile:
             profilecontent = pathfile.read()
 
         if profilecontent.find(bin_path) == -1:
             path_temp = content.replace("<BIN_PATH>", bin_path)
             profilecontent = profilecontent + "\n" + path_temp
-            with open(profilepath, "w") as pathfile:
+            with open(profilepath, "w", encoding="utf-8") as pathfile:
                 pathfile.write(profilecontent)
 
         os.system(self.to_bash("source " + profilepath))

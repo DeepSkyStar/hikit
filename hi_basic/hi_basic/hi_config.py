@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-14 17:30:28
+LastEditTime: 2024-05-22 21:03:00
 FilePath: /hikit/hi_basic/hi_basic/hi_config.py
 Description: 
 
@@ -171,7 +171,7 @@ class HiConfig(object):
         if not os.path.exists(path) or not os.path.isfile(path):
             return False
 
-        with open(path, "r") as jsonfile:
+        with open(path, "r", encoding="utf-8") as jsonfile:
             try:
                 json.load(jsonfile)
             except ValueError:

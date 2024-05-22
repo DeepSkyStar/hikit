@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-15 20:59:01
+LastEditTime: 2024-05-22 21:03:42
 FilePath: /hikit/hi_installer.py
 Description: 
 
@@ -151,7 +151,7 @@ class HiInstaller(object):
             source_path = os.path.join(path, command)
             bin_content = bin_template.replace("<BIN_PATH>", source_path)
             bin_path = HiPath.binpath(command)
-            with open(bin_path, "w") as binfile:
+            with open(bin_path, "w", encoding="utf-8") as binfile:
                 binfile.write(bin_content)
             os.chmod(bin_path, 1023)
         pass

@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2022-05-08 19:47:48
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-09 15:51:30
+LastEditTime: 2024-05-22 21:02:47
 FilePath: /hikit/hi_basic/setup.py
 Description: 
 
@@ -24,7 +24,7 @@ limitations under the License.
 
 import setuptools
 
-with open("README.md", "r") as fh:
+with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
