@@ -1,5 +1,8 @@
 # Release Note
 
+## v1.2.8
+1. Fix HiTemplate bug and improve HiConfig performance.
+
 ## v1.2.7
 1. Fix install to system, now install to user.
 
