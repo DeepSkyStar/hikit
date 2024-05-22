@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-22 21:14:50
+LastEditTime: 2024-05-22 22:07:21
 FilePath: /hikit/hi_basic/hi_basic/hi_template.py
 Description: 
 
@@ -53,9 +53,9 @@ class HiTemplate(object):
         self._template_dir = template_dir
         self._template_root = []
         self._template_files = {}
-        self._ignore_files = (
+        self._ignore_files = [
             ".DS_Store"
-        )
+        ]
         self._load_template(template_dir)
         pass
 
@@ -65,7 +65,6 @@ class HiTemplate(object):
 
         # Fetch file name
         self._template_root = list(set(os.listdir(template_dir)) - set(self._ignore_files))
-
         # Fetch the file content and replace variables.
         self._load_contents(
             template_dir,
@@ -81,6 +80,8 @@ class HiTemplate(object):
         for name in names:
             subpath = os.path.join(path, name)
             if os.path.isdir(subpath):
+                if name in self._ignore_files:
+                    continue
                 subpathfiles = {}
                 files[self._replace_file_name(name)] = subpathfiles
                 self._load_contents(
