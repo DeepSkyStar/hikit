@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-04 18:22:47
+LastEditTime: 2024-05-22 21:55:17
 FilePath: /hikit/hi_menu_display.py
 Description: 
 
@@ -36,7 +36,7 @@ class HiMenuDisplay(object):
     def __init__(self) -> None:
         pass
 
-    def pretty_list_display(self, source: HiSource = HiSource()) -> str:
+    def pretty_list_display(self, source: HiSource) -> str:
         """For pretty displayed."""
         display = ""
         for group in source.group_list.groups:
@@ -44,7 +44,7 @@ class HiMenuDisplay(object):
             display += "\n\n"
         return display
 
-    def _pretty_group(self, group: HiAppGroupInfo, source: HiSource = HiSource()) -> str:
+    def _pretty_group(self, group: HiAppGroupInfo, source: HiSource) -> str:
         display = group.name + "\n"
         display += group.desc + "\n"
         display += "\n"

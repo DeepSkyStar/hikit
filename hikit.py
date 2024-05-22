@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-12 20:37:40
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-15 20:53:19
+LastEditTime: 2024-05-22 21:55:37
 FilePath: /hikit/hikit.py
 Description: 
 
@@ -48,7 +48,7 @@ def __list(args):
             HiLog.info(HiText("menu_list_no_source_warning_help", "Please use `hi list --setup <source-url>` setup source at first."))
         else:
             print("\n")
-            print(HiMenuDisplay().pretty_list_display())
+            print(HiMenuDisplay().pretty_list_display(source=HiSource()))
     pass
 
 
