@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-22 21:03:30
+LastEditTime: 2024-05-22 21:07:06
 FilePath: /hikit/hi_basic/hi_basic/hi_template.py
 Description: 
 
@@ -88,7 +88,7 @@ class HiTemplate(object):
                     os.listdir(subpath),
                     subpathfiles)
             else:
-                if tempfile in self._ignore_files:
+                if name in self._ignore_files:
                     continue
                 HiLog.debug("read template file:" + subpath)
                 with open(subpath, "r", encoding="utf-8") as tempfile:
