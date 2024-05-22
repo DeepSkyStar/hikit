@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-09 18:27:51
+LastEditTime: 2024-05-22 20:54:10
 FilePath: /hikit/hi_basic/hi_basic/hi_template.py
 Description: 
 
@@ -85,8 +85,8 @@ class HiTemplate(object):
                     os.listdir(subpath),
                     subpathfiles)
             else:
-                # HiLog.debug("read template file:" + subpath)
-                with open(subpath, "r") as tempfile:
+                HiLog.debug("read template file:" + subpath)
+                with open(subpath, "r", encoding="utf-8") as tempfile:
                     content = tempfile.read()
                     content = self._replace_content(content)
                     files[self._replace_file_name(name)] = content
