@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-22 21:07:06
+LastEditTime: 2024-05-22 21:14:50
 FilePath: /hikit/hi_basic/hi_basic/hi_template.py
 Description: 
 
@@ -64,7 +64,7 @@ class HiTemplate(object):
             raise IOError("Template dir not exist, please update or reinstall the hikit!")
 
         # Fetch file name
-        self._template_root = os.listdir(template_dir)
+        self._template_root = list(set(os.listdir(template_dir)) - set(self._ignore_files))
 
         # Fetch the file content and replace variables.
         self._load_contents(

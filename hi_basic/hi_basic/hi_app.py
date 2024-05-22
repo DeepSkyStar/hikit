@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-15 18:49:19
+LastEditTime: 2024-05-22 21:20:35
 FilePath: /hikit/hi_basic/hi_basic/hi_app.py
 Description: 
 
@@ -101,7 +101,7 @@ class HiResourceInfo(dict):
     pass
 
 
-class HiAppInfo(HiConfig):
+class HiAppInfo(object):
     """App infomation class."""
 
     def __init__(self, path: str, is_config: bool = False) -> None:
@@ -111,15 +111,9 @@ class HiAppInfo(HiConfig):
             path (str): The app path.
         """
         if is_config:
-            super().__init__(
-                path=path,
-                auto_create=False
-                )
+            self._config = HiConfig(path=path, auto_create=False)
         else:
-            super().__init__(
-                path=os.path.join(path, "hikit-info.json"),
-                auto_create=False
-                )
+            self._config = HiConfig(path=os.path.join(path, "hikit-info.json"), auto_create=False)
         pass
 
     @classmethod
@@ -148,29 +142,37 @@ class HiAppInfo(HiConfig):
         return HiAppInfo(config_path, is_config=True)
 
     @property
+    def config(self) -> HiConfig:
+        return self._config
+
+    @property
+    def path(self) -> str:
+        return self._config.path
+
+    @property
     def name(self) -> str:
         """Name for app."""
-        return self[HiAppInfoKey.NAME]
+        return self._config[HiAppInfoKey.NAME]
 
     @property
     def contact(self) ->str:
         """Contact info."""
-        return self[HiAppInfoKey.CONTACT]
+        return self._config[HiAppInfoKey.CONTACT]
 
     @property
     def desc(self) -> str:
         """Introduction for app."""
-        return self[HiAppInfoKey.DESC]
+        return self._config[HiAppInfoKey.DESC]
 
     @property
     def owner(self) -> str:
         """Owner is the maintaner."""
-        return self[HiAppInfoKey.OWNER]
+        return self._config[HiAppInfoKey.OWNER]
 
     @property
     def version(self) -> str:
         """Version for app update."""
-        return self[HiAppInfoKey.VERSION]
+        return self._config[HiAppInfoKey.VERSION]
 
     @property
     def app_path(self) -> str:
@@ -182,46 +184,46 @@ class HiAppInfo(HiConfig):
         """Remote address for app update, only support Git."""
         if self.name == "hikit":
             return HiPath.hikitsource()
-        return self[HiAppInfoKey.REMOTE]
+        return self._config[HiAppInfoKey.REMOTE]
 
     @property
     def default_branch(self) -> str:
         """If is empty, will use default."""
-        return self[HiAppInfoKey.DEFAULT_BRANCH]
+        return self._config[HiAppInfoKey.DEFAULT_BRANCH]
 
     @property
     def type(self) -> HiAppType:
         """Use to define app type."""
-        return self[HiAppInfoKey.TYPE]
+        return self._config[HiAppInfoKey.TYPE]
 
     @property
     def commands(self) -> list:
         """For define multiple commands, must be legal written. Return type is list[str]."""
-        if self[HiAppInfoKey.COMMANDS] is None:
+        if self._config[HiAppInfoKey.COMMANDS] is None:
             return []
-        return self[HiAppInfoKey.COMMANDS]
+        return self._config[HiAppInfoKey.COMMANDS]
 
     @property
     def dependencies(self) -> list:
         """If dependencies not in the app list, will not work. Return type is list[str]."""
-        if self[HiAppInfoKey.DEPENDENCIES] is None:
+        if self._config[HiAppInfoKey.DEPENDENCIES] is None:
             return []
-        return self[HiAppInfoKey.DEPENDENCIES]
+        return self._config[HiAppInfoKey.DEPENDENCIES]
 
     @property
     def resources(self) -> list:
         """Use to fetch remote data. Return type is list[HiResourceInfo]."""
         resources = []
-        if self[HiAppInfoKey.RESOURCES] is None:
+        if self._config[HiAppInfoKey.RESOURCES] is None:
             return []
-        for info in self[HiAppInfoKey.RESOURCES]:
+        for info in self._config[HiAppInfoKey.RESOURCES]:
             resources.append(HiResourceInfo(info))
         return resources
 
     def copy_to(self, path: str):
         """Copy to another place."""
         config = HiConfig(path)
-        config.items = self.items
+        config.items = self._config.items
         pass
 
     pass

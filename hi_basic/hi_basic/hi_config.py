@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-22 21:05:43
+LastEditTime: 2024-05-22 21:21:04
 FilePath: /hikit/hi_basic/hi_basic/hi_config.py
 Description: 
 
@@ -147,7 +147,6 @@ class HiConfig(object):
         if not hasattr(self, "_HiConfig_items"):
             self._items = {}
             self._filestamp = HiFileStamp(self._path)
-            HiLog.debug(f"Load config {self._path}")
             self._load_config()
         pass
 
@@ -243,6 +242,7 @@ class HiConfig(object):
                 HiFile.ensure_dirs(os.path.split(self._path)[0])
                 self._init_config()
         else:
+            HiLog.debug(f"Load config {self._path}")
             with open(self._path, "r", encoding="utf-8") as jsonfile:
                 try:
                     self._items = json.load(jsonfile)
