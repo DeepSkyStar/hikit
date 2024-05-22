@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-22 21:21:04
+LastEditTime: 2024-05-22 21:40:58
 FilePath: /hikit/hi_basic/hi_basic/hi_config.py
 Description: 
 
@@ -116,24 +116,41 @@ class HiConfig(object):
 
     def __new__(cls, *args, **kwargs):
         """Make sure the same file will be the same instance."""
+        auto_cache = True
         if not args:
             if "path" in kwargs:
                 path = kwargs["path"]
             else:
                 path = HiConfig.USER_CONFIG_PATH
+
+            if "auto_cache" in kwargs:
+                auto_cache = kwargs["auto_cache"]
         else:
             path = args[0]
+            if len(args) >= 2:
+                auto_cache = args[1]
 
-        # Use weakref to save object.
-        if path not in cls._configs or cls._configs[path]() is None:
-            config = super().__new__(cls)
-            cls._configs[path] = weakref.ref(config)
+        # auto cache the config.
+        if auto_cache:
+            if path not in cls._configs or cls._configs[path] is None:
+                config = super().__new__(cls)
+                cls._configs[path] = config
+            else:
+                config = cls._configs[path]
         else:
-            config = cls._configs[path]()
+            config = super().__new__(cls)
+
+        # USELESS!!!.
+        # Use weakref to save object.
+        # if path not in cls._configs or cls._configs[path]() is None:
+        #     config = super().__new__(cls)
+        #     cls._configs[path] = weakref.ref(config)
+        # else:
+        #     config = cls._configs[path]()
 
         return config
 
-    def __init__(self, path: str = USER_CONFIG_PATH, editable: bool = True, auto_create: bool = True):
+    def __init__(self, path: str = USER_CONFIG_PATH, auto_cache: bool = True , editable: bool = True, auto_create: bool = True):
         """HiConfig() will create from ~/.hikit_user/.hiconfig.json .
 
         Args:
@@ -144,7 +161,7 @@ class HiConfig(object):
         self._path = os.path.abspath(path)
         self._auto_create = auto_create
         self._editable = editable
-        if not hasattr(self, "_HiConfig_items"):
+        if not hasattr(self, "_items"):
             self._items = {}
             self._filestamp = HiFileStamp(self._path)
             self._load_config()
