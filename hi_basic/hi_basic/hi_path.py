@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-12 20:37:40
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-23 17:40:49
+LastEditTime: 2024-05-23 19:36:32
 FilePath: /hikit/hi_basic/hi_basic/hi_path.py
 Description: 
 
@@ -113,7 +113,7 @@ class HiPath(object):
         """Path for hikit venv path."""
         if not os.path.exists(os.path.expanduser(HiPath.VENV_PATH)):
             return ""
-        return HiPath.VENV_PATH
+        return os.path.expanduser(HiPath.VENV_PATH)
 
     @classmethod
     def infopath(cls, name: str = "") -> str:
