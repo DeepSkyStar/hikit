@@ -65,6 +65,10 @@ Hikit will default to the origin address at the time of installation as the sour
 
 If hikit is damaged and cannot be opened, you can try to reinstall hikit following the steps again.
 
+### hipip
+Hikit currently defaults to creating a virtual Python environment based on venv in the directory `~/.hikit/hienv`.
+You can manage the packages of hienv using `hipip`.
+
 ### Install and Uninstall Tools
 
 Enter:

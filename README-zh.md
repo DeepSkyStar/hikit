@@ -62,6 +62,10 @@ hikit会默认以安装时的origin地址作为hikit自身的源地址，该地�
 
 **如果hikit被破坏无法打开**，你可以尝试重新进行步骤[安装hikit](#安装hikit).
 
+### hipip
+hikit目前默认会基于venv创建一个虚拟python环境到 ~/.hikit/hienv目录下。
+可以使用`hipip` 管理hienv的包。
+
 ### 安装和卸载工具
 输入
 
