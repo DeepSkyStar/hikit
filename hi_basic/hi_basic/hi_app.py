@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-22 21:20:35
+LastEditTime: 2024-05-23 16:26:56
 FilePath: /hikit/hi_basic/hi_basic/hi_app.py
 Description: 
 
@@ -173,6 +173,10 @@ class HiAppInfo(object):
     def version(self) -> str:
         """Version for app update."""
         return self._config[HiAppInfoKey.VERSION]
+
+    @property
+    def items(self) -> dict:
+        return self._config.items
 
     @property
     def app_path(self) -> str:
