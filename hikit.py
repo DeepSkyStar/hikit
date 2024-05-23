@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-12 20:37:40
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-22 21:55:37
+LastEditTime: 2024-05-23 19:28:30
 FilePath: /hikit/hikit.py
 Description: 
 
@@ -135,6 +135,12 @@ def __install(args):
     is_all = args["all"]
     name = args["name"]
     branch = args["branch"]
+
+    if not HiPath.appsource():
+        HiLog.info(HiText("menu_update_no_source_warning", "Source doesn't setup!"))
+        HiLog.info(HiText("menu_update_no_source_warning_help", "Please use `hi list --setup <source-url>` setup source at first."))
+        return None
+
     if branch is not None and len(branch) == 1:
         branch = branch[0]
         HiLog.info(HiText("menu_install_branch", "branch is ") + branch)
