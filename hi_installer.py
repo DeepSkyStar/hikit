@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-23 19:38:09
+LastEditTime: 2024-05-23 19:39:26
 FilePath: /hikit/hi_installer.py
 Description: 
 
@@ -153,7 +153,7 @@ class HiInstaller(object):
             source_path = os.path.join(path, command)
             bin_content = bin_template.replace("<BIN_PATH>", source_path)
             if venv_path:
-                activate_path = os.path.abspath(os.path.join(venv_path, "/bin/activate"))
+                activate_path = os.path.abspath(os.path.join(venv_path, "bin/activate"))
                 bin_content = bin_content.replace("<VENV_BEGIN>", "source " + str(activate_path))
                 bin_content = bin_content.replace("<VENV_END>", "deactivate")
             else:
