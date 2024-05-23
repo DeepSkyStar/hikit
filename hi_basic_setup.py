@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-23 17:48:22
+LastEditTime: 2024-05-23 19:26:07
 FilePath: /hikit/hi_basic_setup.py
 Description: 
 
@@ -42,9 +42,9 @@ def install_pip_module(path: str):
     os.chdir(distpath)
     print("Starting install " + distlist[0] + "...")
     if sys.prefix == os.path.expanduser("~/.hikit/hienv"):
-        os.system("python3 -m pip install " + distlist[0])
+        os.system("python3 -m pip install --force-reinstall " + distlist[0])
     else:
-        os.system("python3 -m pip install --user " + distlist[0])
+        os.system("python3 -m pip install --force-reinstall --user " + distlist[0])
     os.chdir(lastpath)
     pass
 
