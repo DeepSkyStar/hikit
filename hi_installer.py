@@ -153,7 +153,7 @@ class HiInstaller(object):
             source_path = os.path.join(path, command)
             bin_content = bin_template.replace("<BIN_PATH>", source_path)
             if venv_path:
-                bin_content = bin_content.replace("<VENV_BEGIN>", f"source {venv_path + venv_path + "/bin/activate"}")
+                bin_content = bin_content.replace("<VENV_BEGIN>", f"source {venv_path + "/bin/activate"}")
                 bin_content = bin_content.replace("<VENV_END>", "deactivate")
             else:
                 bin_content = bin_content.replace("<VENV_BEGIN>", "")
