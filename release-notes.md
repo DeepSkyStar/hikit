@@ -1,5 +1,8 @@
 # Release Note
 
+## v1.3.1
+1. Change hienv path to absolute path in script.
+
 ## v1.3.0
 1. Add hienv for isolate the hikit environment (Should setup again).
 2. Add hipip for manager the hikit python library.s
