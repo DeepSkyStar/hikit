@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-15 20:59:09
+LastEditTime: 2024-05-23 17:48:22
 FilePath: /hikit/hi_basic_setup.py
 Description: 
 
@@ -23,6 +23,7 @@ limitations under the License.
 '''
 
 import os
+import sys
 
 
 # Before install other staff, must be ensure hi_basic already installed.
@@ -40,7 +41,10 @@ def install_pip_module(path: str):
     distlist = os.listdir(distpath)
     os.chdir(distpath)
     print("Starting install " + distlist[0] + "...")
-    os.system("python3 -m pip install --user " + distlist[0])
+    if sys.prefix == os.path.expanduser("~/.hikit/hienv"):
+        os.system("python3 -m pip install " + distlist[0])
+    else:
+        os.system("python3 -m pip install --user " + distlist[0])
     os.chdir(lastpath)
     pass
 

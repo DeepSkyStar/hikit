@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-12 20:37:40
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-04 18:26:10
+LastEditTime: 2024-05-23 17:40:49
 FilePath: /hikit/hi_basic/hi_basic/hi_path.py
 Description: 
 
@@ -33,6 +33,7 @@ class HiPath(object):
 
     HIKIT_SOURCE_KEY = "hikit_source"
     APP_SOURCE_KEY = "app_source"
+    VENV_PATH = "~/.hikit/hienv"
 
     @classmethod
     def hikitsource(cls) -> str:
@@ -106,6 +107,13 @@ class HiPath(object):
         if path:
             return os.path.join(cls.binpath(), path)
         return cls.runpath("bin")
+
+    @classmethod
+    def envpath(cls) -> str:
+        """Path for hikit venv path."""
+        if not os.path.exists(os.path.expanduser(HiPath.VENV_PATH)):
+            return ""
+        return HiPath.VENV_PATH
 
     @classmethod
     def infopath(cls, name: str = "") -> str:

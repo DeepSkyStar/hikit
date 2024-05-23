@@ -4,7 +4,7 @@
  # @Author: Cosmade
  # @Date: 2024-04-09 15:55:33
  # @LastEditors: deepskystar deepskystar@outlook.com
- # @LastEditTime: 2024-05-15 20:59:30
+ # @LastEditTime: 2024-05-23 17:44:36
  # @FilePath: /hikit/setup
  # @Description: 
  # 
@@ -23,9 +23,27 @@
 ### 
 
 rm -r -f ~/.hikit
-python3 -m pip install --user -r requirements.txt
+# check -d is install directly
+if [ "$1" == "-d" ]; then
+    echo "Install to python enviroment directly..."
+    python3 -m pip install --user -r requirements.txt
+else
+    mkdir ~/.hikit
+    python3 -m venv ~/.hikit/hienv
+    source ~/.hikit/hienv/bin/activate
+    python3 -m pip install -r requirements.txt
+fi
+
+
 python3 hi_basic_setup.py
 python3 hi_setup.py
+
+# check -d is install directly
+if [ "$1" == "-d" ]; then
+    echo "Finished install to python enviroment directly."
+else
+    deactivate
+fi
 
 if [ -e "~/.bashrc" ]; then
     source ~/.bashrc
@@ -34,3 +52,4 @@ fi
 if [ -e "~/.zshrc" ]; then
     source ~/.zshrc
 fi
+

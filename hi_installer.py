@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-22 21:03:42
+LastEditTime: 2024-05-23 17:49:11
 FilePath: /hikit/hi_installer.py
 Description: 
 
@@ -84,7 +84,7 @@ class HiInstaller(object):
 
         # Check app type to select install func.
         if installed_app.type == HiAppType.APP or installed_app.type == HiAppType.FLUTTER:
-            self._build_commands(installed_app.app_path)
+            self._build_commands(installed_app.app_path, venv_path=HiPath.envpath())
             self._update_requirements(installed_app.app_path)
         elif installed_app.type == HiAppType.BASIC:
             install_pip_module(installed_app.app_path)
@@ -142,14 +142,23 @@ class HiInstaller(object):
         self._repo.transmitter.switch(branch)
         pass
 
-    def _build_commands(self, path: str) -> None:
+    def _build_commands(self, path: str, venv_path: str = "") -> None:
         bin_template = """#!/bin/sh
 # -*- coding: utf-8 -*-
+<VENV_BEGIN>
 <BIN_PATH> "$@"
+<VENV_END>
 """
         for command in self._info.commands:
             source_path = os.path.join(path, command)
             bin_content = bin_template.replace("<BIN_PATH>", source_path)
+            if venv_path:
+                bin_content = bin_content.replace("<VENV_BEGIN>", f"source {venv_path}")
+                bin_content = bin_content.replace("<VENV_END>", "deactivate")
+            else:
+                bin_content = bin_content.replace("<VENV_BEGIN>", "")
+                bin_content = bin_content.replace("<VENV_END>", "")
+
             bin_path = HiPath.binpath(command)
             with open(bin_path, "w", encoding="utf-8") as binfile:
                 binfile.write(bin_content)
@@ -175,7 +184,10 @@ class HiInstaller(object):
     def _update_requirements(self, path: str) -> None:
         requirements_file = os.path.join(path, "requirements.txt")
         if os.path.exists(requirements_file):
-            os.system(HiSys.to_bash("python3 -m pip install --user -r " + requirements_file))
+            if sys.prefix == os.path.expanduser("~/.hikit/hienv"):
+                os.system(HiSys.to_bash("python3 -m pip install -r " + requirements_file))
+            else:
+                os.system(HiSys.to_bash("python3 -m pip install --user -r " + requirements_file))
         pass
 
     pass
@@ -188,7 +200,7 @@ class HiLocalInstaller(HiInstaller):
         """Local install."""
         if self._info.type == HiAppType.APP or self._info.type == HiAppType.FLUTTER:
             self._update_requirements(self._info.app_path)
-            self._build_commands(self._info.app_path)
+            self._build_commands(self._info.app_path, venv_path=HiPath.envpath())
             self._download_resouces(self._info.resources)
         elif self._info.type == HiAppType.BASIC:
             self._update_requirements(self._info.app_path)

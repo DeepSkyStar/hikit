@@ -8,7 +8,8 @@
     "remote": "https://github.com/DeepSkyStar/hikit.git",
     "is_default" : true,
     "commands":[
-        "hi"
+        "hi",
+        "hipip"
     ],
     "resources":[
     ],
