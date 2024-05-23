@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-12 20:37:40
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-23 19:28:30
+LastEditTime: 2024-05-23 19:31:43
 FilePath: /hikit/hikit.py
 Description: 
 
@@ -86,7 +86,6 @@ def __show(args):
 
 
 def __update(args):
-    only_list = args["all"]
     is_all = args["all"]
     name = args["name"]
 
