@@ -13,6 +13,12 @@ hikit基于Git开发，包括权限控制，工具管理，数据存储等等都
 ## 如何使用
 这一章节将告诉你如何使用该工具，只需按以下步骤逐步进行即可。如果你希望编写自用的小工具请跳转到 [如何开发工具](#how_to_dev)。
 
+### 安装之前
+如果你使用的是ubuntu20.04，请先安装git和venv，如下:
+`sudo apt update`
+`sudo apt install git`
+`sudo apt install python3-venv`
+
 ### 安装hikit
 把该仓库克隆到你喜欢的地方:
 
