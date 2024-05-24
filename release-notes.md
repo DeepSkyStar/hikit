@@ -1,5 +1,8 @@
 # Release Note
 
+## v1.3.2
+1. Fix to support python3.8.
+
 ## v1.3.1
 1. Change hienv path to absolute path in script.
 
