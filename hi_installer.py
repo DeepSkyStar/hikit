@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-04-09 15:55:33
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-23 19:39:26
+LastEditTime: 2024-05-24 21:47:21
 FilePath: /hikit/hi_installer.py
 Description: 
 
@@ -143,7 +143,7 @@ class HiInstaller(object):
         pass
 
     def _build_commands(self, path: str, venv_path: str = "") -> None:
-        bin_template = """#!/bin/sh
+        bin_template = """#!/bin/bash
 # -*- coding: utf-8 -*-
 <VENV_BEGIN>
 <BIN_PATH> "$@"
