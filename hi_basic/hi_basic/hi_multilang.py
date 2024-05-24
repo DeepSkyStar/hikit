@@ -4,7 +4,7 @@
 Author: Cosmade
 Date: 2024-05-10 20:40:23
 LastEditors: deepskystar deepskystar@outlook.com
-LastEditTime: 2024-05-22 21:03:18
+LastEditTime: 2024-05-24 21:39:37
 FilePath: /hikit/hi_basic/hi_basic/hi_multilang.py
 Description: 
 
@@ -40,8 +40,8 @@ class HiMultiLang(object):
         pass
 
     @property
-    def support_list(self) -> list[str]:
-        """If support list is not right, will auto correct"""
+    def support_list(self) -> list:
+        """If support list is not right, will auto correct. Type is list[str]."""
         if "support" not in self._langfile:
             self._langfile.writer["support"] = ["en"]
         support = self._langfile["support"]
@@ -51,7 +51,8 @@ class HiMultiLang(object):
         return support
 
     @property
-    def file_list(self) -> list[str]:
+    def file_list(self) -> list:
+        """Type is list[str]."""
         if "text" not in self._langfile:
             self._langfile.writer["text"] = {}
             return []
@@ -63,7 +64,8 @@ class HiMultiLang(object):
 
         return list(text_dict.keys())
 
-    def get_dict(self, filepath: str) -> dict[str, dict[str, str]]:
+    def get_dict(self, filepath: str) -> dict:
+        """Type is dict[str, dict[str, str]]"""
         file_list = self.file_list
         if filepath not in file_list:
             return {}
@@ -153,7 +155,8 @@ class HiMultiLang(object):
         return path
 
     @staticmethod
-    def _scan_file(start_dir: str, dir: str) -> dict[str, dict[str, str]]:
+    def _scan_file(start_dir: str, dir: str) -> dict:
+        """Type is dict[str, dict[str, str]]"""
         lang_dict = {}
         for filename in os.listdir(dir):
             filepath = os.path.join(dir, filename)
@@ -171,7 +174,8 @@ class HiMultiLang(object):
         return lang_dict
 
     @staticmethod
-    def _analysis_file(filepath: str = None) -> dict[str, str]:
+    def _analysis_file(filepath: str = None) -> dict:
+        """dict[str, str]"""
         with open(filepath, "r", encoding="utf-8") as file:
             content = file.read()
 
