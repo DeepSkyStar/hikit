@@ -1,5 +1,8 @@
 # Release Note
 
+## v1.3.3
+1. Change default shell to bash.
+
 ## v1.3.2
 1. Fix to support python3.8.
 
