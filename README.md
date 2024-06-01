@@ -14,6 +14,12 @@ Also see [中文说明](README-zh.md)
 
 This section will tell you how to use this tool. Simply follow the steps below. If you wish to write your own small tools, please skip to the section [How to develop](#how_to_dev).
 
+### Before install
+If you are using ubuntu20.04, install git and venv as follows:
+`sudo apt update`
+`sudo apt install git`
+`sudo apt install python3-venv`
+
 ### Install hikit
 
 Clone this repository to your preferred location:
