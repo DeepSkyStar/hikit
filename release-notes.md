@@ -1,5 +1,8 @@
 # Release Note
 
+## v1.4.0
+1. Add hipy3 for run script on hi env.
+
 ## v1.3.3
 1. Change default shell to bash.
 
